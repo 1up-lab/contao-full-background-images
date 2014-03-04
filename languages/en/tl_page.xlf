@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="system/modules/potential-avenger/languages/en/tl_page.php" source-language="en">
+    <body>
+      <trans-unit id="tl_page.usePotentialAvenger.0">
+        <source>Use potential avenger</source>
+      </trans-unit>
+      <trans-unit id="tl_page.usePotentialAvenger.1">
+        <source>Use and enable potential avenger.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSRC.0">
+        <source>Source files</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSRC.1">
+        <source>Please select one or more files or folders from the files directory. If you select a folder, its files will be included automatically.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.pa_legend">
+        <source>Potential avenger settings</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
