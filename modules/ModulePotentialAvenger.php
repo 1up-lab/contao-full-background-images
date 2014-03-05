@@ -4,7 +4,7 @@ namespace Oneup;
 
 class ModulePotentialAvenger extends \Module
 {
-    protected $objFiles;
+    protected $objFiles = null;
     protected $strTemplate = 'potential_avenger';
 
     public function generate()
@@ -38,10 +38,8 @@ class ModulePotentialAvenger extends \Module
 
     protected function compile()
     {
-        global $objPage;
-
-        if ($objPage && $objPage->usePotentialAvenger) {
-
+        if ($this->objFiles) {
+            // TODO: output some stuff
         }
     }
 }
