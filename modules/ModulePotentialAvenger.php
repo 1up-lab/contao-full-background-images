@@ -16,6 +16,7 @@ class ModulePotentialAvenger extends \Module
         // Return if there are no files
         if (!is_array($objPage->paSRC) || empty($objPage->paSRC) || $objPage->usePotentialAvenger === '')
         {
+            // TODO: search recursive up parent
             return '';
         }
 
@@ -40,7 +41,7 @@ class ModulePotentialAvenger extends \Module
         global $objPage;
 
         if ($objPage && $objPage->usePotentialAvenger) {
-            
+
         }
     }
 }
