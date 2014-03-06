@@ -9,7 +9,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC,sortBy';
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['usePotentialAvenger'] = array
 (
@@ -32,6 +32,17 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paSRC'] = array
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['paOrder'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['orderSRC'],
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paOrder'],
     'sql'                     => "blob NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['sortBy'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['sortBy'],
+    'exclude'                 => true,
+    'inputType'               => 'select',
+    'options'                 => array('custom', 'name_asc', 'name_desc', 'date_asc', 'date_desc', 'random'),
+    'reference'               => &$GLOBALS['TL_LANG']['tl_page'],
+    'eval'                    => array('tl_class'=>'w50'),
+    'sql'                     => "varchar(32) NOT NULL default ''"
 );

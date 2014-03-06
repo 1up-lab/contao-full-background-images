@@ -1,0 +1,3 @@
+<?php foreach ($this->body as $image): ?>
+    <img src="<?php echo $image->src; ?>" />
+<?php endforeach; ?>

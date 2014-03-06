@@ -12,5 +12,6 @@ ClassLoader::addClasses(array
 
 TemplateLoader::addFiles(array
 (
-    'potential_avenger'    => 'system/modules/potential-avenger/templates',
+    'mod_potential_avenger' => 'system/modules/potential-avenger/templates',
+    'potential_avenger'     => 'system/modules/potential-avenger/templates',
 ));
