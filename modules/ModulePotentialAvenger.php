@@ -198,21 +198,20 @@ class ModulePotentialAvenger extends \Module
 
         $images = array_values($images);
         $intMaxWidth = $GLOBALS['TL_CONFIG']['maxImageWidth'];
-        $body = array();
+        $objImages = array();
 
         foreach($images as $image) {
             $objCell = new \stdClass();
 
             $this->addImageToTemplate($objCell, $image, $intMaxWidth);
 
-            $body[] = $objCell;
+            $objImages[] = $objCell;
         }
 
         $strTemplate = 'potential_avenger';
 
         $objTemplate = new \FrontendTemplate($strTemplate);
-        //$objTemplate->setData($this->arrData);
-        $objTemplate->body = $body;
+        $objTemplate->images = $objImages;
 
         $this->Template->images = $objTemplate->parse();
     }
