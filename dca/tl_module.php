@@ -4,7 +4,7 @@
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'paMode';
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['potentialAvenger'] = "{title_legend},name,type;{paMode_legend},paMode;{paSettings_legend},paTimeout,paSpeed";
+$GLOBALS['TL_DCA']['tl_module']['palettes']['potentialAvenger'] = "{title_legend},name,type;{paSettings_legend},paMode,paTimeout,paSpeed";
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['paMode'] = array
 (
@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['paMode'] = array
     'default'                 => 'paMultiple',
     'exclude'                 => true,
     'inputType'               => 'select',
-    'options'                 => array('paMultiple', 'paSingle', 'paSingleRandom'),
+    'options'                 => array('paSingle', 'paSingleRandom', 'paMultiple'),
     'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
     'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true),
     'sql'                     => "varchar(32) NOT NULL default ''"
