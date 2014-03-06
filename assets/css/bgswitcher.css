@@ -1,0 +1,18 @@
+#bg-body {
+    background: none repeat scroll 0 0 #D2D2D0;
+    height: 200%;
+    left: -50%;
+    position: fixed;
+    top: -50%;
+    width: 200%;
+}
+#bg-body img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    min-height: 50%;
+    min-width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

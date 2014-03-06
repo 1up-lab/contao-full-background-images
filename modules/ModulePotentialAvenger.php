@@ -212,7 +212,11 @@ class ModulePotentialAvenger extends \Module
 
         $objTemplate = new \FrontendTemplate($strTemplate);
         $objTemplate->images = $objImages;
+        
+        $GLOBALS['TL_BODY'][] = $objTemplate->parse();
 
-        $this->Template->images = $objTemplate->parse();
+        $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.bcat.bgswitcher.js|static';
+        $GLOBALS['TL_CSS'][] = 'system/modules/potential-avenger/assets/css/bgswitcher.css||static';
+        $GLOBALS['TL_BODY'][] = '<script type="text/javascript">' . "\n" . file_get_contents(TL_ROOT . '/system/modules/potential-avenger/assets/js/main.js') . '</script>';
     }
 }

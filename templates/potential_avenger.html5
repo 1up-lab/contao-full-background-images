@@ -1,3 +1,7 @@
-<?php foreach ($this->images as $image): ?>
-    <img src="<?php echo $image->src; ?>" />
-<?php endforeach; ?>
+<script type="text/javascript">
+  var srcBgArray = [
+  <?php foreach ($this->images as $image): ?>
+  "<?php echo $image->src; ?>",
+  <?php endforeach; ?>
+  ];
+</script>

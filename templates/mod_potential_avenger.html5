@@ -1,3 +1,2 @@
-<div id="potential-avenger" style="display: none;">
-  <?php echo $this->images; ?>
+<div id="bg-body">
 </div>
