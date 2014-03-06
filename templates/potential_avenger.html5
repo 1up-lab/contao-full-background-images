@@ -1,7 +1,10 @@
 <script type="text/javascript">
-  var srcBgArray = [
-  <?php foreach ($this->images as $image): ?>
-  "<?php echo $image->src; ?>",
-  <?php endforeach; ?>
-  ];
+
+  $(document).ready(function() {
+    $('#bg-body').bcatBGSwitcher({
+      urls: [<?php echo $this->images; ?>],
+      alt: 'Background image'
+    });
+  });
+
 </script>
