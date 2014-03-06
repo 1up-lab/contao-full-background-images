@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="system/modules/potential-avenger/languages/en/tl_module.php" source-language="en">
+    <body>
+      <trans-unit id="tl_module.paMode.0">
+        <source>Operation mode</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paMode.1">
+        <source>Select the operation mode for potential avenger.</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paMode_legend">
+        <source>Mode</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSingle.0">
+        <source>Single image</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSingle.1">
+        <source>Show only one image (the first from the selection).</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSingleRandom.0">
+        <source>Random single image</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSingleRandom.1">
+        <source>Show only one image (random from the selection).</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paMultiple.0">
+        <source>Fade multiple images</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paMultiple.1">
+        <source>Show all images from the selection with fading.</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSpeed.0">
+        <source>Animation speed</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSpeed.1">
+        <source>Animation speed in ms (milliseconds).</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paTimeout.0">
+        <source>Timeout time</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paTimeout.1">
+        <source>Time between image changes in ms (milliseconds).</source>
+      </trans-unit>
+      <trans-unit id="tl_module.paSettings_legend">
+        <source>Settings</source>
+      </trans-unit>
+      <trans-unit id="tl_module.includePotentialAvenger">
+        <source>The &lt;em&gt;jQuery&lt;/em&gt; javascript library needs to be included in the page layout.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

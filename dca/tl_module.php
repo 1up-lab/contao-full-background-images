@@ -2,6 +2,8 @@
 
 \Controller::loadLanguageFile('tl_content');
 
+$GLOBALS['TL_DCA']['tl_module']['config']['onload_callback'][] = array('PotentialAvengerModule', 'showJsLibraryHint');
+
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'paMode';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['potentialAvenger'] = "{title_legend},name,type;{paSettings_legend},paMode,paTimeout,paSpeed";
@@ -37,3 +39,40 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['paSpeed'] = array
     'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50'),
     'sql'                     => "int(10) unsigned NOT NULL default '1000'"
 );
+
+class PotentialAvengerModule extends \Backend
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->import('BackendUser', 'User');
+    }
+
+    public function showJsLibraryHint($dc)
+    {
+        if ($_POST || Input::get('act') != 'edit')
+        {
+            return;
+        }
+
+        // Return if the user cannot access the layout module (see #6190)
+        if (!$this->User->hasAccess('themes', 'modules') || !$this->User->hasAccess('layout', 'themes'))
+        {
+            return;
+        }
+
+        $objMod = ModuleModel::findByPk($dc->id);
+
+        if ($objMod === null)
+        {
+            return;
+        }
+
+        switch ($objMod->type)
+        {
+            case 'potentialAvenger':
+                Message::addInfo($GLOBALS['TL_LANG']['tl_module']['includePotentialAvenger']);
+                break;
+        }
+    }
+}
