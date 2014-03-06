@@ -8,17 +8,29 @@ class ModulePotentialAvenger extends \Module
     protected $mode;
     protected $timeout;
     protected $speed;
+    protected $objPageBg;
     protected $strTemplate = 'mod_potential_avenger';
 
     protected function searchForBackgroundImages($objPage)
     {
         $objPage->paSRC = deserialize($objPage->paSRC);
 
-        if (!is_array($objPage->paSRC) || empty($objPage->paSRC) || $objPage->usePotentialAvenger === '')
-        {
-            if ($objPage->pid == 0) return null;
+        switch($objPage->pam) {
+            case 'disable':
+                $objPage = null;
+                break;
 
-            $objPage = $this->searchForBackgroundImages(\PageModel::findOneBy('id', $objPage->pid));
+            case '':
+            case 'inherit':
+                if ($objPage->pid == 0) return null;
+                $objPage = $this->searchForBackgroundImages(\PageModel::findOneBy('id', $objPage->pid));
+                break;
+
+            case 'choose':
+                if (!is_array($objPage->paSRC) || empty($objPage->paSRC)) {
+                    $objPage = null;
+                }
+                break;
         }
 
         return $objPage;
@@ -30,17 +42,17 @@ class ModulePotentialAvenger extends \Module
 
         if (TL_MODE == 'BE') return '';
 
-        $objPageBg = $this->searchForBackgroundImages($objPage);
+        $this->objPageBg = $this->searchForBackgroundImages($objPage);
 
         // Return if there are no files
-        if (!$objPageBg) return '';
+        if (!$this->objPageBg) return '';
 
         // Get the file entries from the database
-        $this->objFiles = \FilesModel::findMultipleByUuids($objPageBg->paSRC);
+        $this->objFiles = \FilesModel::findMultipleByUuids($this->objPageBg->paSRC);
 
         if ($this->objFiles === null)
         {
-            if (!\Validator::isUuid($objPageBg->paSRC[0]))
+            if (!\Validator::isUuid($this->objPageBg->paSRC[0]))
             {
                 return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
             }
@@ -60,9 +72,15 @@ class ModulePotentialAvenger extends \Module
 
         $objFiles = $this->objFiles;
 
-        $this->mode = $objPage->paMode ? $objPage->paMode : $this->paMode;
-        $this->speed = $objPage->paSpeed ? $objPage->paSpeed : $this->paSpeed;
-        $this->timeout = $objPage->paTimeout ? $objPage->paTimeout : $this->paTimeout;
+        $this->mode    = $this->paImgMode;
+        $this->speed   = $this->paSpeed;
+        $this->timeout = $this->paTimeout;
+
+        if ($overwrite = (int) $this->objPageBg->overwriteModule) {
+            $this->mode    = $this->objPageBg->paImgMode ? $this->objPageBg->paImgMode : $this->paImgMode;
+            $this->speed   = $this->objPageBg->paSpeed   ? $this->objPageBg->paSpeed   : $this->paSpeed;
+            $this->timeout = $this->objPageBg->paTimeout ? $this->objPageBg->paTimeout : $this->paTimeout;
+        }
 
         while ($objFiles->next()) {
 
@@ -230,7 +248,7 @@ class ModulePotentialAvenger extends \Module
             $objImages[] = $objCell;
         }
 
-        if ($this->mode !== 'paMultiple') {
+        if ($this->mode === 'paSingle' || $this->mode === 'paSingleRandom') {
             $objImages = array($objImages[$imageIndex]);
         }
 

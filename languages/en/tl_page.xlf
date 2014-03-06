@@ -23,11 +23,11 @@
       <trans-unit id="tl_page.overwriteModule.1">
         <source>If enabled, the settings from the module will be overwritten with these below!</source>
       </trans-unit>
-      <trans-unit id="tl_page.paMode.0">
-        <source>Operation mode</source>
+      <trans-unit id="tl_page.paImgMode.0">
+        <source>Image mode</source>
       </trans-unit>
-      <trans-unit id="tl_page.paMode.1">
-        <source>Select the operation mode for potential avenger.</source>
+      <trans-unit id="tl_page.paImgMode.1">
+        <source>Select the mode for the background images.</source>
       </trans-unit>
       <trans-unit id="tl_page.paSingle.0">
         <source>Single image</source>
@@ -58,6 +58,30 @@
       </trans-unit>
       <trans-unit id="tl_page.paTimeout.1">
         <source>Time between image changes in ms (milliseconds).</source>
+      </trans-unit>
+      <trans-unit id="tl_page.pam.0">
+        <source>Operation Mode</source>
+      </trans-unit>
+      <trans-unit id="tl_page.pam.1">
+        <source>Select a desired operation mode.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.inherit.0">
+        <source>Inherit</source>
+      </trans-unit>
+      <trans-unit id="tl_page.inherit.1">
+        <source>Inherits settings from a parent page.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.choose.0">
+        <source>Choose</source>
+      </trans-unit>
+      <trans-unit id="tl_page.choose.1">
+        <source>Choose specific images for this page.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.disable.0">
+        <source>Disable</source>
+      </trans-unit>
+      <trans-unit id="tl_page.disable.1">
+        <source>Don't add a background image.</source>
       </trans-unit>
     </body>
   </file>

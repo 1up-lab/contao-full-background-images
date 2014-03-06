@@ -2,11 +2,11 @@
 <xliff version="1.1">
   <file datatype="php" original="system/modules/potential-avenger/languages/en/tl_module.php" source-language="en">
     <body>
-      <trans-unit id="tl_module.paMode.0">
-        <source>Operation mode</source>
+      <trans-unit id="tl_module.paImgMode.0">
+        <source>Image mode</source>
       </trans-unit>
-      <trans-unit id="tl_module.paMode.1">
-        <source>Select the operation mode for potential avenger.</source>
+      <trans-unit id="tl_module.paImgMode.1">
+        <source>Select the mode for the background images.</source>
       </trans-unit>
       <trans-unit id="tl_module.paMode_legend">
         <source>Mode</source>
