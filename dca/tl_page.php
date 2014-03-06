@@ -19,7 +19,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace
 );
 
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC,sortBy,overwriteModule,paTimeout,paSpeed;';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC,sortBy,overwriteModule,paMode,paTimeout,paSpeed;';
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['usePotentialAvenger'] = array
 (
@@ -72,10 +72,10 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paMode'] = array
     'default'                 => 'paMultiple',
     'exclude'                 => true,
     'inputType'               => 'select',
-    'options'                 => array('paMultiple', 'paSingle', 'paSingleRandom'),
-    'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
+    'options'                 => array('paSingle', 'paSingleRandom', 'paMultiple'),
+    'reference'               => &$GLOBALS['TL_LANG']['tl_page'],
     'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true),
-    'sql'                     => "varchar(32) NOT NULL default ''"
+    'sql'                     => "varchar(32) NOT NULL default 'paSingle'"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['paTimeout'] = array

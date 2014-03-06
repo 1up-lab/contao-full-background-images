@@ -17,6 +17,48 @@
       <trans-unit id="tl_page.pa_legend">
         <source>Potential avenger settings</source>
       </trans-unit>
+      <trans-unit id="tl_page.overwriteModule.0">
+        <source>Overwrite module settings</source>
+      </trans-unit>
+      <trans-unit id="tl_page.overwriteModule.1">
+        <source>If enabled, the settings from the module will be overwritten with these below!</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paMode.0">
+        <source>Operation mode</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paMode.1">
+        <source>Select the operation mode for potential avenger.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSingle.0">
+        <source>Single image</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSingle.1">
+        <source>Show only one image (the first from the selection).</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSingleRandom.0">
+        <source>Random single image</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSingleRandom.1">
+        <source>Show only one image (random from the selection).</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paMultiple.0">
+        <source>Fade multiple images</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paMultiple.1">
+        <source>Show all images from the selection with fading.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSpeed.0">
+        <source>Animation speed</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paSpeed.1">
+        <source>Animation speed in ms (milliseconds).</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paTimeout.0">
+        <source>Timeout time</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paTimeout.1">
+        <source>Time between image changes in ms (milliseconds).</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
