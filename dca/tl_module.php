@@ -55,7 +55,7 @@ class PotentialAvengerModule extends \Backend
             return;
         }
 
-        // Return if the user cannot access the layout module (see #6190)
+        // Return if the user cannot access the layout module
         if (!$this->User->hasAccess('themes', 'modules') || !$this->User->hasAccess('layout', 'themes'))
         {
             return;

@@ -7,7 +7,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'usePotentialAveng
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace
 (
     'includeChmod;',
-    'noSincludeChmodearch;{pa_legend:hide},usePotentialAvenger;',
+    'includeChmod;{pa_legend:hide},usePotentialAvenger;',
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
 
@@ -19,7 +19,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace
 );
 
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC,sortBy,overwriteModule,paMode,paTimeout,paSpeed;';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC,sortBy,overwriteModule,paMode,paTimeout,paSpeed';
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['usePotentialAvenger'] = array
 (
@@ -35,7 +35,6 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['overwriteModule'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_page']['overwriteModule'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'eval'                    => array('submitOnChange'=>true),
     'sql'                     => "char(1) NOT NULL default ''"
 );
 

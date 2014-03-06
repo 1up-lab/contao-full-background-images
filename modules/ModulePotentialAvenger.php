@@ -10,27 +10,37 @@ class ModulePotentialAvenger extends \Module
     protected $speed;
     protected $strTemplate = 'mod_potential_avenger';
 
+    protected function searchForBackgroundImages($objPage)
+    {
+        $objPage->paSRC = deserialize($objPage->paSRC);
+
+        if (!is_array($objPage->paSRC) || empty($objPage->paSRC) || $objPage->usePotentialAvenger === '')
+        {
+            if ($objPage->pid == 0) return null;
+
+            $objPage = $this->searchForBackgroundImages(\PageModel::findOneBy('id', $objPage->pid));
+        }
+
+        return $objPage;
+    }
+
     public function generate()
     {
         global $objPage;
 
         if (TL_MODE == 'BE') return '';
 
-        $objPage->paSRC = deserialize($objPage->paSRC);
+        $objPageBg = $this->searchForBackgroundImages($objPage);
 
         // Return if there are no files
-        if (!is_array($objPage->paSRC) || empty($objPage->paSRC) || $objPage->usePotentialAvenger === '')
-        {
-            // TODO: search recursive up parent
-            return '';
-        }
+        if (!$objPageBg) return '';
 
         // Get the file entries from the database
-        $this->objFiles = \FilesModel::findMultipleByUuids($objPage->paSRC);
+        $this->objFiles = \FilesModel::findMultipleByUuids($objPageBg->paSRC);
 
         if ($this->objFiles === null)
         {
-            if (!\Validator::isUuid($objPage->paSRC[0]))
+            if (!\Validator::isUuid($objPageBg->paSRC[0]))
             {
                 return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
             }
@@ -231,6 +241,7 @@ class ModulePotentialAvenger extends \Module
         $objTemplate->timeout = (int) $this->timeout;
         $objTemplate->speed = (int) $this->speed;
 
+        // add javascript and css files
         $GLOBALS['TL_BODY'][] = $objTemplate->parse();
         $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.bcat.bgswitcher.js|static';
         $GLOBALS['TL_CSS'][] = 'system/modules/potential-avenger/assets/css/bgswitcher.css|all|static';
