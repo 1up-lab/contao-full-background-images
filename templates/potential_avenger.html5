@@ -2,6 +2,8 @@
   $(document).ready(function() {
     $('#bg-body').bcatBGSwitcher({
       urls: [<?php echo $this->images; ?>],
+      speed: <?php echo $this->speed; ?>,
+      timeout: <?php echo $this->timeout; ?>,
       alt: 'Background image',
     });
   });

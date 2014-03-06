@@ -5,6 +5,9 @@ namespace Oneup;
 class ModulePotentialAvenger extends \Module
 {
     protected $objFiles = null;
+    protected $mode;
+    protected $timeout;
+    protected $speed;
     protected $strTemplate = 'mod_potential_avenger';
 
     public function generate()
@@ -44,7 +47,12 @@ class ModulePotentialAvenger extends \Module
 
         $images = array();
         $auxDate = array();
+
         $objFiles = $this->objFiles;
+
+        $this->mode = $objPage->paMode ? $objPage->paMode : $this->paMode;
+        $this->speed = $objPage->paSpeed ? $objPage->paSpeed : $this->paSpeed;
+        $this->timeout = $objPage->paTimeout ? $objPage->paTimeout : $this->paTimeout;
 
         while ($objFiles->next()) {
 
@@ -199,22 +207,32 @@ class ModulePotentialAvenger extends \Module
         $images = array_values($images);
         $intMaxWidth = $GLOBALS['TL_CONFIG']['maxImageWidth'];
         $objImages = array();
+        $imageIndex = 0;
+
+        if ($this->mode === 'paSingleRandom') {
+            mt_srand();
+            $imageIndex = mt_rand(0, count($images)-1);
+        }
 
         foreach($images as $image) {
             $objCell = new \stdClass();
-
             $this->addImageToTemplate($objCell, $image, $intMaxWidth);
-
             $objImages[] = $objCell;
+        }
+
+        if ($this->mode !== 'paMultiple') {
+            $objImages = array($objImages[$imageIndex]);
         }
 
         $strTemplate = 'potential_avenger';
 
         $objTemplate = new \FrontendTemplate($strTemplate);
         $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
+        $objTemplate->timeout = (int) $this->timeout;
+        $objTemplate->speed = (int) $this->speed;
 
         $GLOBALS['TL_BODY'][] = $objTemplate->parse();
         $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.bcat.bgswitcher.js|static';
-        $GLOBALS['TL_CSS'][] = 'system/modules/potential-avenger/assets/css/bgswitcher.css||static';
+        $GLOBALS['TL_CSS'][] = 'system/modules/potential-avenger/assets/css/bgswitcher.css|all|static';
     }
 }

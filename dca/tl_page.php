@@ -4,10 +4,18 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'usePotentialAveng
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace
 (
-    'noSearch;',
-    'noSearch;{pa_legend:hide},usePotentialAvenger;',
+    'includeChmod;',
+    'noSincludeChmodearch;{pa_legend:hide},usePotentialAvenger;',
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
+
+$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace
+(
+    'includeChmod;',
+    'includeChmod;{pa_legend:hide},usePotentialAvenger;',
+    $GLOBALS['TL_DCA']['tl_page']['palettes']['root']
+);
+
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['usePotentialAvenger'] = 'paSRC,sortBy';
 
