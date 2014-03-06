@@ -50,7 +50,7 @@ class PotentialAvengerModule extends \Backend
 
     public function showJsLibraryHint($dc)
     {
-        if ($_POST || Input::get('act') != 'edit')
+        if ($_POST || \Input::get('act') != 'edit')
         {
             return;
         }
@@ -61,7 +61,7 @@ class PotentialAvengerModule extends \Backend
             return;
         }
 
-        $objMod = ModuleModel::findByPk($dc->id);
+        $objMod = \ModuleModel::findByPk($dc->id);
 
         if ($objMod === null)
         {
@@ -71,7 +71,7 @@ class PotentialAvengerModule extends \Backend
         switch ($objMod->type)
         {
             case 'potentialAvenger':
-                Message::addInfo($GLOBALS['TL_LANG']['tl_module']['includePotentialAvenger']);
+                \Message::addInfo($GLOBALS['TL_LANG']['tl_module']['includePotentialAvenger']);
                 break;
         }
     }
