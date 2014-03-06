@@ -2,10 +2,8 @@
 
 \Controller::loadLanguageFile('tl_content');
 
-$GLOBALS['TL_DCA']['tl_module']['config']['onload_callback'][] = array('PotentialAvengerModule', 'showJsLibraryHint');
-
-$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'paImgMode';
-
+$GLOBALS['TL_DCA']['tl_module']['config']['onload_callback'][]  = array('PotentialAvengerModule', 'showJsLibraryHint');
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][]   = 'paImgMode';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['potentialAvenger'] = "{title_legend},name,type;{paSettings_legend},paImgMode,paTimeout,paSpeed";
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['paImgMode'] = array
