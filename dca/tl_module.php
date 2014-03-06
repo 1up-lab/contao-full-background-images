@@ -15,7 +15,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['paMode'] = array
     'options'                 => array('paSingle', 'paSingleRandom', 'paMultiple'),
     'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
     'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true),
-    'sql'                     => "varchar(32) NOT NULL default ''"
+    'sql'                     => "varchar(32) NOT NULL default 'paSingle'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['paTimeout'] = array
