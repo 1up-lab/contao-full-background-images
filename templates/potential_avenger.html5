@@ -1,10 +1,12 @@
 <script type="text/javascript">
-  $(document).ready(function() {
-    $.backstretch(
-      [<?php echo $this->images; ?>],
+  ;(function($){
+    $(document).ready(function() {
+      $.backstretch(
+          [<?php echo $this->images; ?>],
       {
         duration: <?php echo $this->timeout; ?>,
         fade: <?php echo $this->speed; ?>,
       });
-  });
+    });
+  })(jQuery)
 </script>
