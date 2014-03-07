@@ -43,6 +43,10 @@ class PotentialAvenger extends \Frontend
     {
         $objPage->paSRC = deserialize($objPage->paSRC);
 
+        if ($objPage->type === 'root') {
+            $objPage->pam = $objPage->pam_root;
+        }
+
         switch($objPage->pam) {
             case 'disable':
                 $objPage = null;
