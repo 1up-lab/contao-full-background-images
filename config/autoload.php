@@ -7,11 +7,10 @@ ClassLoader::addNamespaces(array
 
 ClassLoader::addClasses(array
 (
-    'Oneup\ModulePotentialAvenger'                      => 'system/modules/potential-avenger/modules/ModulePotentialAvenger.php',
+    'Oneup\PotentialAvenger'        => 'system/modules/potential-avenger/classes/PotentialAvenger.php',
 ));
 
 TemplateLoader::addFiles(array
 (
-    'mod_potential_avenger' => 'system/modules/potential-avenger/templates',
     'potential_avenger'     => 'system/modules/potential-avenger/templates',
 ));
