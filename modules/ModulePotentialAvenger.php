@@ -261,7 +261,6 @@ class ModulePotentialAvenger extends \Module
 
         // add javascript and css files
         $GLOBALS['TL_BODY'][] = $objTemplate->parse();
-        $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.bcat.bgswitcher.js|static';
-        $GLOBALS['TL_CSS'][] = 'system/modules/potential-avenger/assets/css/bgswitcher.css|all|static';
+        $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.backstretch.min.js|static';
     }
 }

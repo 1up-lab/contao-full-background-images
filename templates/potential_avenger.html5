@@ -1,10 +1,10 @@
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#bg-body').bcatBGSwitcher({
-      urls: [<?php echo $this->images; ?>],
-      speed: <?php echo $this->speed; ?>,
-      timeout: <?php echo $this->timeout; ?>,
-      alt: 'Background image',
-    });
+    $.backstretch(
+      [<?php echo $this->images; ?>],
+      {
+        duration: <?php echo $this->timeout; ?>,
+        fade: <?php echo $this->speed; ?>,
+      });
   });
 </script>
