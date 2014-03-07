@@ -2,12 +2,6 @@
 <xliff version="1.1">
   <file datatype="php" original="system/modules/potential-avenger/languages/en/tl_page.php" source-language="en">
     <body>
-      <trans-unit id="tl_page.usePotentialAvenger.0">
-        <source>Use potential avenger</source>
-      </trans-unit>
-      <trans-unit id="tl_page.usePotentialAvenger.1">
-        <source>Use and enable potential avenger.</source>
-      </trans-unit>
       <trans-unit id="tl_page.paSRC.0">
         <source>Source files</source>
       </trans-unit>
