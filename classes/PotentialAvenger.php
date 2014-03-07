@@ -2,14 +2,42 @@
 
 namespace Oneup;
 
-class ModulePotentialAvenger extends \Module
+class PotentialAvenger extends \Frontend
 {
     protected $objFiles = null;
     protected $mode;
     protected $timeout;
     protected $speed;
+    protected $sortBy;
+    protected $order;
     protected $objPageBg;
-    protected $strTemplate = 'mod_potential_avenger';
+
+    public function generate(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular)
+    {
+        if (TL_MODE == 'BE') return ;
+
+        $this->objPageBg = $this->searchForBackgroundImages($objPage);
+
+        // Return if there are no files
+        if (!$this->objPageBg) return ;
+
+        // Get the file entries from the database
+        $this->objFiles = \FilesModel::findMultipleByUuids($this->objPageBg->paSRC);
+
+        if ($this->objFiles === null)
+        {
+            if (!\Validator::isUuid($this->objPageBg->paSRC[0]))
+            {
+                \System::log($GLOBALS['TL_LANG']['ERR']['version2format'], __METHOD__, TL_ERROR);
+            }
+
+            return;
+        }
+
+        $this->order = $this->$objPageBg->paOrder;
+
+        $this->compile($objPage);
+    }
 
     protected function searchForBackgroundImages($objPage)
     {
@@ -22,7 +50,7 @@ class ModulePotentialAvenger extends \Module
 
             case '':
             case 'inherit':
-                if ($objPage->pid == 0) return null;
+                if (!$objPage->pid) return null;
                 $objPage = $this->searchForBackgroundImages(\PageModel::findOneBy('id', $objPage->pid));
                 break;
 
@@ -36,51 +64,55 @@ class ModulePotentialAvenger extends \Module
         return $objPage;
     }
 
-    public function generate()
+    protected function applySettings(\PageModel $objPage)
     {
-        global $objPage;
+        $value = $objPage->pam . (int) $objPage->paOverwrite;
 
-        if (TL_MODE == 'BE') return '';
-
-        $this->objPageBg = $this->searchForBackgroundImages($objPage);
-
-        // Return if there are no files
-        if (!$this->objPageBg) return '';
-
-        // Get the file entries from the database
-        $this->objFiles = \FilesModel::findMultipleByUuids($this->objPageBg->paSRC);
-
-        if ($this->objFiles === null)
+        switch((string) $value)
         {
-            if (!\Validator::isUuid($this->objPageBg->paSRC[0]))
-            {
-                return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
-            }
-
-            return '';
+            case '':
+            case '0':
+            case 'inherit':
+            case 'inherit0':
+            case 'choose0':
+                // take parents
+                $pageWithSettings = $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid));
+                $this->mode = $pageWithSettings->paImgMode;
+                $this->speed = $pageWithSettings->paSpeed;
+                $this->timeout = $pageWithSettings->paTimeout;
+                $this->sortBy = $pageWithSettings->sortBy;
+                break;
+            case '1':
+            case 'inherit1':
+            case 'choose1':
+                // take owns
+                $this->mode = $objPage->paImgMode;
+                $this->speed = $objPage->paSpeed;
+                $this->timeout = $objPage->paTimeout;
+                $this->sortBy = $objPage->sortBy;
+                break;
         }
-
-        return parent::generate();
     }
 
-    protected function compile()
+    protected function findParentWithSettings(\PageModel $objPage)
     {
-        global $objPage;
+        if ($objPage->paSpeed && $objPage->paTimeout) {
+            return $objPage;
+        }
 
+        if (!$objPage->pid) return null;
+
+        return \PageModel::findOneBy('id', $objPage->pid);
+    }
+
+    protected function compile(\PageModel $objPage)
+    {
         $images = array();
         $auxDate = array();
 
         $objFiles = $this->objFiles;
 
-        $this->mode    = $this->paImgMode;
-        $this->speed   = $this->paSpeed;
-        $this->timeout = $this->paTimeout;
-
-        if ($overwrite = (int) $this->objPageBg->overwriteModule) {
-            $this->mode    = $this->objPageBg->paImgMode ? $this->objPageBg->paImgMode : $this->paImgMode;
-            $this->speed   = $this->objPageBg->paSpeed   ? $this->objPageBg->paSpeed   : $this->paSpeed;
-            $this->timeout = $this->objPageBg->paTimeout ? $this->objPageBg->paTimeout : $this->paTimeout;
-        }
+        $this->applySettings($objPage);
 
         while ($objFiles->next()) {
 
@@ -174,7 +206,7 @@ class ModulePotentialAvenger extends \Module
         }
 
         // Sort array
-		switch ($this->sortBy)
+        switch ($this->sortBy)
         {
             default:
             case 'name_asc':
@@ -195,9 +227,9 @@ class ModulePotentialAvenger extends \Module
 
             case 'meta': // Backwards compatibility
             case 'custom':
-                if ($this->paOrder != '')
+                if ($this->order != '')
                 {
-                    $tmp = deserialize($this->paOrder);
+                    $tmp = deserialize($this->order);
 
                     if (!empty($tmp) && is_array($tmp))
                     {

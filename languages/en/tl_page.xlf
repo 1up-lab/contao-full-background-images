@@ -17,11 +17,14 @@
       <trans-unit id="tl_page.pa_legend">
         <source>Potential avenger settings</source>
       </trans-unit>
+      <trans-unit id="tl_page.pa_overwrite_legend">
+        <source>Potential avenger overwrite</source>
+      </trans-unit>
       <trans-unit id="tl_page.overwriteModule.0">
-        <source>Overwrite module settings</source>
+        <source>Overwrite parent settings</source>
       </trans-unit>
       <trans-unit id="tl_page.overwriteModule.1">
-        <source>If enabled, the settings from the module will be overwritten with these below!</source>
+        <source>If enabled, the settings from the parent page will be overwritten with these below!</source>
       </trans-unit>
       <trans-unit id="tl_page.paImgMode.0">
         <source>Image mode</source>
@@ -72,10 +75,10 @@
         <source>Inherits settings from a parent page.</source>
       </trans-unit>
       <trans-unit id="tl_page.choose.0">
-        <source>Choose</source>
+        <source>Selection</source>
       </trans-unit>
       <trans-unit id="tl_page.choose.1">
-        <source>Choose specific images for this page.</source>
+        <source>Use the selected images for this page.</source>
       </trans-unit>
       <trans-unit id="tl_page.disable.0">
         <source>Disable</source>

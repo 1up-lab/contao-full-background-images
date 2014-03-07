@@ -1,3 +1,3 @@
 <?php
 
-$GLOBALS['FE_MOD']['miscellaneous']['potentialAvenger'] = 'ModulePotentialAvenger';
+$GLOBALS['TL_HOOKS']['generatePage'][] = array('Oneup\PotentialAvenger', 'generate');
