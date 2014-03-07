@@ -75,7 +75,7 @@ class PotentialAvenger extends \Frontend
             case 'inherit':
             case 'inherit0':
             case 'choose0':
-                // take parents
+                // take parent settings
                 $pageWithSettings = $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid));
                 $this->mode = $pageWithSettings->paImgMode;
                 $this->speed = $pageWithSettings->paSpeed;
@@ -85,7 +85,7 @@ class PotentialAvenger extends \Frontend
             case '1':
             case 'inherit1':
             case 'choose1':
-                // take owns
+                // take own settings
                 $this->mode = $objPage->paImgMode;
                 $this->speed = $objPage->paSpeed;
                 $this->timeout = $objPage->paTimeout;
