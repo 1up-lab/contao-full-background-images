@@ -293,30 +293,33 @@ class PotentialAvenger extends \Frontend
         $objImages = array();
         $imageIndex = 0;
 
-        if ($this->mode === 'paSingleRandom') {
-            mt_srand();
-            $imageIndex = mt_rand(0, count($images)-1);
+        if (count($images))
+        {
+            if ($this->mode === 'paSingleRandom') {
+                mt_srand();
+                $imageIndex = mt_rand(0, count($images)-1);
+            }
+
+            foreach($images as $image) {
+                $objCell = new \stdClass();
+                $this->addImageToTemplate($objCell, $image, $intMaxWidth);
+                $objImages[] = $objCell;
+            }
+
+            if ($this->mode === 'paSingle' || $this->mode === 'paSingleRandom') {
+                $objImages = array($objImages[$imageIndex]);
+            }
+
+            $strTemplate = 'potential_avenger';
+
+            $objTemplate = new \FrontendTemplate($strTemplate);
+            $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
+            $objTemplate->timeout = (int) $this->timeout;
+            $objTemplate->speed = (int) $this->speed;
+
+            // add javascript and css files
+            $GLOBALS['TL_BODY'][] = $objTemplate->parse();
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.backstretch.min.js|static';
         }
-
-        foreach($images as $image) {
-            $objCell = new \stdClass();
-            $this->addImageToTemplate($objCell, $image, $intMaxWidth);
-            $objImages[] = $objCell;
-        }
-
-        if ($this->mode === 'paSingle' || $this->mode === 'paSingleRandom') {
-            $objImages = array($objImages[$imageIndex]);
-        }
-
-        $strTemplate = 'potential_avenger';
-
-        $objTemplate = new \FrontendTemplate($strTemplate);
-        $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
-        $objTemplate->timeout = (int) $this->timeout;
-        $objTemplate->speed = (int) $this->speed;
-
-        // add javascript and css files
-        $GLOBALS['TL_BODY'][] = $objTemplate->parse();
-        $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.backstretch.min.js|static';
     }
 }
