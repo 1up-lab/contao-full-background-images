@@ -45,6 +45,8 @@ class PotentialAvenger extends \Frontend
 
         if ($objPage->type === 'root') {
             $objPage->pam = $objPage->pam_root;
+            $objPage->paSpeed = $objPage->paRootSpeed;
+            $objPage->paTimeout = $objPage->paRootTimeout;
         }
 
         switch($objPage->pam) {
@@ -70,6 +72,12 @@ class PotentialAvenger extends \Frontend
 
     protected function applySettings(\PageModel $objPage)
     {
+        if ($objPage->type === 'root') {
+            $objPage->pam = $objPage->pam_root;
+            $objPage->paSpeed = $objPage->paRootSpeed;
+            $objPage->paTimeout = $objPage->paRootTimeout;
+        }
+
         $value = $objPage->pam . (int) $objPage->paOverwrite;
 
         switch((string) $value)
@@ -80,33 +88,45 @@ class PotentialAvenger extends \Frontend
             case 'inherit0':
             case 'choose0':
                 // take parent settings
-                $pageWithSettings = $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid));
-                $this->mode = $pageWithSettings->paImgMode;
-                $this->speed = $pageWithSettings->paSpeed;
+                $pageWithSettings = $this->findParentWithSettings($objPage);
+
+                $this->mode    = $pageWithSettings->paImgMode;
+                $this->speed   = $pageWithSettings->paSpeed;
                 $this->timeout = $pageWithSettings->paTimeout;
-                $this->sortBy = $pageWithSettings->sortBy;
+                $this->sortBy  = $pageWithSettings->sortBy;
                 break;
             case '1':
             case 'inherit1':
             case 'choose1':
-                // take own settings
-                $this->mode = $objPage->paImgMode;
-                $this->speed = $objPage->paSpeed;
+                if ($objPage->paSpeed == '' || $objPage->paTimeout == '') {
+                    $pageWithSettings   = $this->findParentWithSettings($objPage);
+                    $objPage->paSpeed   = $objPage->paSpeed   == '' ? $pageWithSettings->paSpeed   : $objPage->paSpeed;
+                    $objPage->paTimeout = $objPage->paTimeout == '' ? $pageWithSettings->paTimeout : $objPage->paTimeout;
+                }
+
+                $this->mode    = $objPage->paImgMode;
+                $this->sortBy  = $objPage->sortBy;
+                $this->speed   = $objPage->paSpeed;
                 $this->timeout = $objPage->paTimeout;
-                $this->sortBy = $objPage->sortBy;
                 break;
         }
     }
 
     protected function findParentWithSettings(\PageModel $objPage)
     {
+        if ($objPage->type === 'root') {
+            $objPage->pam = $objPage->pam_root;
+            $objPage->paSpeed = $objPage->paRootSpeed;
+            $objPage->paTimeout = $objPage->paRootTimeout;
+        }
+
         if ($objPage->paSpeed && $objPage->paTimeout) {
             return $objPage;
         }
 
         if (!$objPage->pid) return null;
 
-        return \PageModel::findOneBy('id', $objPage->pid);
+        return $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid));
     }
 
     protected function compile(\PageModel $objPage)

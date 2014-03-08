@@ -14,7 +14,7 @@ $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_disable'] = '';
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_choose']  = 'paSRC';
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_disable'] = '';
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_choose']  = 'paSRC,sortBy,paImgMode,paTimeout,paSpeed';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_choose']  = 'paSRC,sortBy,paImgMode,paRootTimeout,paRootSpeed';
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['paOverwrite']      = 'sortBy,paImgMode,paTimeout,paSpeed';
 
@@ -36,7 +36,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['pam_root'] = array
     'default'                 => 'inherit',
     'exclude'                 => true,
     'inputType'               => 'select',
-    'options'                 => array('choose', 'disable'),
+    'options'                 => array('disable', 'choose',),
     'eval'                    => array('helpwizard'=>true, 'submitOnChange'=>true),
     'reference'               => &$GLOBALS['TL_LANG']['tl_page'],
     'sql'                     => "varchar(32) NOT NULL default ''",
@@ -86,7 +86,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paImgMode'] = array
     'inputType'               => 'select',
     'options'                 => array('paSingle', 'paSingleRandom', 'paMultiple'),
     'reference'               => &$GLOBALS['TL_LANG']['tl_page'],
-    'eval'                    => array('helpwizard'=>true, 'chosen'=>true,),
+    'eval'                    => array('helpwizard'=>true, 'chosen'=>true),
     'sql'                     => "varchar(32) NOT NULL default ''",
 );
 
@@ -96,11 +96,31 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paTimeout'] = array
     'default'                 => 12000,
     'exclude'                 => true,
     'inputType'               => 'text',
-    'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50', 'mandatory'=>true),
+    'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50'),
     'sql'                     => "varchar(10) NOT NULL default ''",
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['paSpeed'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paSpeed'],
+    'default'                 => 1000,
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50'),
+    'sql'                     => "varchar(10) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['paRootTimeout'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paTimeout'],
+    'default'                 => 12000,
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50', 'mandatory'=>true),
+    'sql'                     => "varchar(10) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['paRootSpeed'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paSpeed'],
     'default'                 => 1000,
