@@ -75,7 +75,7 @@
         <source>Use the selected images for this page.</source>
       </trans-unit>
       <trans-unit id="tl_page.disable.0">
-        <source>Disable</source>
+        <source>Disabled</source>
       </trans-unit>
       <trans-unit id="tl_page.disable.1">
         <source>Don't add a background image.</source>
