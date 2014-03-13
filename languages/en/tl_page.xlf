@@ -63,13 +63,13 @@
         <source>Select a desired operation mode.</source>
       </trans-unit>
       <trans-unit id="tl_page.inherit.0">
-        <source>Inherit</source>
+        <source>Inherit from parent</source>
       </trans-unit>
       <trans-unit id="tl_page.inherit.1">
         <source>Inherits settings from a parent page.</source>
       </trans-unit>
       <trans-unit id="tl_page.choose.0">
-        <source>Selection</source>
+        <source>Individual selection</source>
       </trans-unit>
       <trans-unit id="tl_page.choose.1">
         <source>Use the selected images for this page.</source>
