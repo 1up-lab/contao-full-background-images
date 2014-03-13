@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-  <file datatype="php" original="system/modules/potential-avenger/languages/de/tl_page.php" source-language="en">
+  <file datatype="php" original="system/modules/contao-full-background-image/languages/de/tl_page.php" source-language="en">
     <body>
       <trans-unit id="tl_page.paSRC.0">
         <source>Source files</source>
@@ -11,12 +11,12 @@
         <target>Bitte wählen Sie eine oder mehr Dateien oder Ordner aus der Dateiübersicht. Wenn Sie einen Ordner auswählen, werden die darin enthaltenen Dateien automatisch eingefügt.</target>
       </trans-unit>
       <trans-unit id="tl_page.pa_legend">
-        <source>Potential avenger settings</source>
-        <target>Potential Avenger Einstellungen</target>
+        <source>Contao full background image settings</source>
+        <target>Contao Full Background Image Einstellungen</target>
       </trans-unit>
       <trans-unit id="tl_page.pa_overwrite_legend">
-        <source>Potential avenger overwrite</source>
-        <target>Potential Avenger Einstellungen überschreiben</target>
+        <source>Contao full background image  overwrite</source>
+        <target>Contao Full Background Image Einstellungen überschreiben</target>
       </trans-unit>
       <trans-unit id="tl_page.overwriteModule.0">
         <source>Overwrite parent settings</source>

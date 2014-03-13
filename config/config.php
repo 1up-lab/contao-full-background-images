@@ -1,3 +1,3 @@
 <?php
 
-$GLOBALS['TL_HOOKS']['generatePage'][] = array('Oneup\PotentialAvenger', 'generate');
+$GLOBALS['TL_HOOKS']['generatePage'][] = array('Oneup\ContaoFullBgImage', 'generate');

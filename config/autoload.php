@@ -7,10 +7,10 @@ ClassLoader::addNamespaces(array
 
 ClassLoader::addClasses(array
 (
-    'Oneup\PotentialAvenger'        => 'system/modules/potential-avenger/classes/PotentialAvenger.php',
+    'Oneup\ContaoFullBgImage'        => 'system/modules/contao-full-background-image/classes/ContaoFullBgImage.php',
 ));
 
 TemplateLoader::addFiles(array
 (
-    'potential_avenger'     => 'system/modules/potential-avenger/templates',
+    'oneup_ct_fullbgimage'     => 'system/modules/contao-full-background-image/templates',
 ));

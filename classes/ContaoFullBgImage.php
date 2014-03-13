@@ -2,7 +2,7 @@
 
 namespace Oneup;
 
-class PotentialAvenger extends \Frontend
+class ContaoFullBgImage extends \Frontend
 {
     protected $objFiles = null;
     protected $mode;
@@ -310,7 +310,7 @@ class PotentialAvenger extends \Frontend
                 $objImages = array($objImages[$imageIndex]);
             }
 
-            $strTemplate = 'potential_avenger';
+            $strTemplate = 'oneup_ct_fullbgimage';
 
             $objTemplate = new \FrontendTemplate($strTemplate);
             $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
@@ -319,7 +319,7 @@ class PotentialAvenger extends \Frontend
 
             // add javascript and css files
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();
-            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/potential-avenger/assets/js/jquery.backstretch.min.js|static';
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/contao-full-background-image/assets/js/jquery.backstretch.min.js|static';
         }
     }
 }
