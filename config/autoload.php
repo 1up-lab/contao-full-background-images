@@ -7,7 +7,7 @@ ClassLoader::addNamespaces(array
 
 ClassLoader::addClasses(array
 (
-    'Oneup\ContaoFullBgImage'        => 'system/modules/contao-full-background-image/classes/ContaoFullBgImage.php',
+    'Oneup\ContaoFullBgImage'  => 'system/modules/contao-full-background-image/classes/ContaoFullBgImage.php',
 ));
 
 TemplateLoader::addFiles(array
