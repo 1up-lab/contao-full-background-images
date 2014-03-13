@@ -38,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['pam_root'] = array
     'exclude'                 => true,
     'inputType'               => 'select',
     'options'                 => array('disable', 'choose',),
-    'eval'                    => array('helpwizard'=>true, 'submitOnChange'=>true),
+    'eval'                    => array('helpwizard'=>true, 'submitOnChange'=>true, 'tl_class'=>'clr m12'),
     'reference'               => &$GLOBALS['TL_LANG']['tl_page'],
     'sql'                     => "varchar(32) NOT NULL default ''",
 );
@@ -58,7 +58,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paSRC'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paSRC'],
     'exclude'                 => true,
     'inputType'               => 'fileTree',
-    'eval'                    => array('multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'paOrder', 'files'=>true, 'mandatory'=>true),
+    'eval'                    => array('multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'paOrder', 'files'=>true, 'mandatory'=>true, 'isGallery'=>true),
     'sql'                     => "blob NULL",
 );
 
