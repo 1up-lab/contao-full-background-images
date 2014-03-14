@@ -1,5 +1,5 @@
 {
-    "name":"oneup/potential-avenger",
+    "name":"oneup/contao-full-background-images",
     "description":"Use full background images in Contao Open Source CMS. This extension also provides a full background image slider/fader.",
     "keywords":["contao", "full", "background", "slider", "images"],
     "type":"contao-module",
@@ -34,7 +34,7 @@
     "extra":{
         "contao": {
             "sources":{
-                "": "system/modules/potential-avenger"
+                "": "system/modules/contao-full-background-images"
             }
         },
         "branch-alias": {
