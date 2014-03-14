@@ -9,10 +9,10 @@
         <source>Please select one or more files or folders from the files directory. If you select a folder, its files will be included automatically.</source>
       </trans-unit>
       <trans-unit id="tl_page.pa_legend">
-        <source>Contao full background image settings</source>
+        <source>Contao full background image mode</source>
       </trans-unit>
       <trans-unit id="tl_page.pa_overwrite_legend">
-        <source>Contao full background image overwrite</source>
+        <source>Contao full background image settings</source>
       </trans-unit>
       <trans-unit id="tl_page.overwriteModule.0">
         <source>Overwrite parent settings</source>

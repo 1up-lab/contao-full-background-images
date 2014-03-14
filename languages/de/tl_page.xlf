@@ -11,12 +11,12 @@
         <target>Bitte wählen Sie eine oder mehr Dateien oder Ordner aus der Dateiübersicht. Wenn Sie einen Ordner auswählen, werden die darin enthaltenen Dateien automatisch eingefügt.</target>
       </trans-unit>
       <trans-unit id="tl_page.pa_legend">
-        <source>Contao full background image settings</source>
-        <target>Contao Full Background Image Einstellungen</target>
+        <source>Contao full background image mode</source>
+        <target>Contao Full Background Image Funktion</target>
       </trans-unit>
       <trans-unit id="tl_page.pa_overwrite_legend">
-        <source>Contao full background image  overwrite</source>
-        <target>Contao Full Background Image Einstellungen überschreiben</target>
+        <source>Contao full background image settings</source>
+        <target>Contao Full Background Image Einstellungen</target>
       </trans-unit>
       <trans-unit id="tl_page.overwriteModule.0">
         <source>Overwrite parent settings</source>
