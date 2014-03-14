@@ -34,7 +34,7 @@
     "extra":{
         "contao": {
             "sources":{
-                "system/modules/potential-avenger": "system/modules/potential-avenger"
+                "": "system/modules/potential-avenger"
             }
         },
         "branch-alias": {
