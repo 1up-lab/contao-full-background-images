@@ -1,5 +1,5 @@
 {
-    "name":"oneup/potential-avenger",
+    "name":"bytehead/potential-avenger",
     "description":"Use full background images in Contao Open Source CMS. This extension also provides a full background image slider/fader.",
     "keywords":["contao", "full", "background", "slider", "images"],
     "type":"contao-module",
@@ -15,10 +15,9 @@
     ],
     "support":{
         "email":"hello@1up.io",
-        "issues":"https://github.com/1up-lab/contao-full-background-images/issues",
-        "wiki":"https://github.com/1up-lab/contao-full-background-images/wiki",
+        "issues":"https://github.com/bytehead/potential-avenger/issues",
         "irc":"irc://irc.freenode.org/contao.dev",
-        "source":"https://github.com/1up-lab/contao-full-background-images"
+        "source":"https://github.com/bytehead/potential-avenger"
     },
     "require":{
         "php":">=5.3",
