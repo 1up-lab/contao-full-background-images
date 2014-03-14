@@ -34,7 +34,7 @@
     "extra":{
         "contao": {
             "sources":{
-                "contao":"system/modules/contao-full-background-images"
+                "contao":"system/modules/potential-avenger"
             }
         },
         "branch-alias": {
