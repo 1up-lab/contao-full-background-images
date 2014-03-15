@@ -11,7 +11,7 @@ This extension provides multiple variants of having full background images for a
 Documentation
 -------------
 
-The entry point of the documentation can be found in the file `resources/docs/index.md`
+The entry point of the documentation can be found in the file `resources/doc/index.md`
 
 [Read the documentation for master](https://github.com/bytehead/contao-full-background-images/blob/master/resources/doc/index.md)
 
