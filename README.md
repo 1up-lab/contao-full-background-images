@@ -20,6 +20,11 @@ Upgrade Notes
 
 * First feature complete version **v1.0.0**
 
+Compatibility
+-------------
+
+This extension requires the Contao Open Source CMS at version 3.2.0 or higher.
+
 License
 -------
 
