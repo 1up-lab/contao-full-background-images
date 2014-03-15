@@ -1,0 +1,38 @@
+Contao Full Background Images
+==============
+
+This extension provides multiple variants of having full background images for a Contao Open Source CMS based website:
+
+* Single full background image with fade in
+* Randomized full background image with fade in
+* Multiple full background images with fade in and fade to change images
+* Subpages can inherit settings from a parent page
+
+Documentation
+-------------
+
+The entry point of the documentation can be found in the file `resources/docs/index.md`
+
+[Read the documentation for master](https://github.com/bytehead/contao-full-background-images/blob/master/resources/doc/index.md)
+
+Upgrade Notes
+-------------
+
+* First feature complete version **v1.0.0**
+
+License
+-------
+
+This bundle is under the MIT license. See the complete license in the bundle:
+
+    Resources/meta/LICENSE
+
+Reporting an issue or a feature request
+---------------------------------------
+
+Issues and feature requests are tracked in the [Github issue tracker](https://github.com/bytehead/contao-full-background-images/issues).
+
+When reporting a bug, it may be a good idea to reproduce it in the demo project
+built using the [Contao Open Source CMS](https://github.com/contao/core)
+to allow developers of the bundle to reproduce the issue by simply cloning it
+and following some steps.
