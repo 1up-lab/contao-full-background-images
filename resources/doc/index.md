@@ -6,7 +6,7 @@ This extension is made for the Contao Open Source CMS and tested for versions 3.
 ## Installation
 
 * Install it via the Contao Extension Repository Client (search for `contao-full-background-images`)
-* Install it via the CCA Composer Client (search for `1up-lab/contao-full-background-images`)
+* Install it via the CCA Composer Client (search for `oneup/contao-full-background-images`)
 
 ## Requirements
 
