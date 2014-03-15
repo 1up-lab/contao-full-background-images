@@ -8,6 +8,10 @@ This extension is made for the Contao Open Source CMS and tested for versions 3.
 * Install it via the Contao Extension Repository Client (search for `contao-full-background-images`)
 * Install it via the CCA Composer Client (search for `bytehead/contao-full-background-images`)
 
+## Requirements
+
+* jQuery has to be enabled in the page layout
+
 ## Usage
 
 All settings are placed in the page tree. Settings made on a root page are mandatory. That's because subpages will inherit the settings from the root page by default.
