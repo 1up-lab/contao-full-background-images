@@ -1,5 +1,5 @@
 {
-    "name":"bytehead/contao-full-background-images",
+    "name":"1up-lab/contao-full-background-images",
     "description":"Use full background images in Contao Open Source CMS. This extension also provides a full background image slider/fader.",
     "keywords":["contao", "full", "background", "slider", "images"],
     "type":"contao-module",
@@ -15,9 +15,9 @@
     ],
     "support":{
         "email":"hello@1up.io",
-        "issues":"https://github.com/bytehead/contao-full-background-images/issues",
+        "issues":"https://github.com/1up-lab/contao-full-background-images/issues",
         "irc":"irc://irc.freenode.org/contao.dev",
-        "source":"https://github.com/bytehead/contao-full-background-images"
+        "source":"https://github.com/1up-lab/contao-full-background-images"
     },
     "require":{
         "php":">=5.3",

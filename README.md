@@ -13,7 +13,7 @@ Documentation
 
 The entry point of the documentation can be found in the file `resources/doc/index.md`
 
-[Read the documentation for master](https://github.com/bytehead/contao-full-background-images/blob/master/resources/doc/index.md)
+[Read the documentation for master](https://github.com/1up-lab/contao-full-background-images/blob/master/resources/doc/index.md)
 
 Upgrade Notes
 -------------
@@ -35,7 +35,7 @@ This bundle is under the MIT license. See the complete license in the bundle:
 Reporting an issue or a feature request
 ---------------------------------------
 
-Issues and feature requests are tracked in the [Github issue tracker](https://github.com/bytehead/contao-full-background-images/issues).
+Issues and feature requests are tracked in the [Github issue tracker](https://github.com/1up-lab/contao-full-background-images/issues).
 
 When reporting a bug, it may be a good idea to reproduce it in the demo project
 built using the [Contao Open Source CMS](https://github.com/contao/core)
