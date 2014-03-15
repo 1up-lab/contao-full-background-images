@@ -7,6 +7,8 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'pam_root';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'paOverwrite';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']        = str_replace('includeChmod;', 'includeChmod;{pa_legend:hide},pam;{pa_overwrite_legend:hide},paOverwrite;',$GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
 $GLOBALS['TL_DCA']['tl_page']['palettes']['forward']        = str_replace('includeChmod;', 'includeChmod;{pa_legend:hide},pam;{pa_overwrite_legend:hide},paOverwrite;',$GLOBALS['TL_DCA']['tl_page']['palettes']['forward']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['error_403']      = str_replace('includeChmod;', 'includeChmod;{pa_legend:hide},pam;{pa_overwrite_legend:hide},paOverwrite;',$GLOBALS['TL_DCA']['tl_page']['palettes']['error_403']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['error_404']      = str_replace('includeChmod;', 'includeChmod;{pa_legend:hide},pam;{pa_overwrite_legend:hide},paOverwrite;',$GLOBALS['TL_DCA']['tl_page']['palettes']['error_404']);
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root']           = str_replace('includeChmod;', 'includeChmod;{pa_legend:hide},pam_root;',$GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
 
 
