@@ -31,7 +31,7 @@ Contao extension repository
 ---------------------------
 
 * German extension repository: [full-background-images DE](https://contao.org/de/extension-list/view/full-background-images.de.html)
-* English extension repository: [full-background-images EN](https://contao.org/de/extension-list/view/full-background-images.en.html)
+* English extension repository: [full-background-images EN](https://contao.org/en/extension-list/view/full-background-images.en.html)
 
 License
 -------
