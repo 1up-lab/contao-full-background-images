@@ -30,8 +30,8 @@ This extension requires the Contao Open Source CMS at version 3.2.0 or higher.
 Contao extension repository
 ---------------------------
 
-* German extension repository: [full-background-images](https://contao.org/de/extension-list/view/full-background-images.de.html)
-* English extension repository: [full-background-images](https://contao.org/de/extension-list/view/full-background-images.en.html)
+* German extension repository: [full-background-images DE](https://contao.org/de/extension-list/view/full-background-images.de.html)
+* English extension repository: [full-background-images EN](https://contao.org/de/extension-list/view/full-background-images.en.html)
 
 License
 -------
