@@ -7,7 +7,7 @@ This extension provides multiple variants of having full background images for a
 * Randomized full background image with fade in
 * Multiple full background images with fade in and fade to change images
 * Subpages can inherit settings from a parent page
-* Mobile (phone & tablet) ready
+* Mobile ready (phone & tablet)
 
 Documentation
 -------------
@@ -26,6 +26,12 @@ Compatibility
 -------------
 
 This extension requires the Contao Open Source CMS at version 3.2.0 or higher.
+
+Contao extension repository
+---------------------------
+
+* German extension repository: [full-background-images](https://contao.org/de/extension-list/view/full-background-images.de.html)
+* English extension repository: [full-background-images](https://contao.org/de/extension-list/view/full-background-images.en.html)
 
 License
 -------
