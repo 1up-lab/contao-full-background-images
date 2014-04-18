@@ -1,7 +1,8 @@
 /*! Backstretch - v2.0.4 - 2013-06-19
  * http://srobbin.com/jquery-plugins/backstretch/
- * Copyright (c) 2013 Scott Robbin; Licensed MIT */
-
+ * Copyright (c) 2013 Scott Robbin; Licensed MIT
+ *
+ * Updated version from https://github.com/FokkeZB/jquery-backstretch @ed5e78e46956bb295b59b9809905ae187f99902a */
 ;(function ($, window, undefined) {
     'use strict';
 
@@ -179,11 +180,17 @@
         resize: function () {
             try {
                 var bgCSS = {left: 0, top: 0}
-                    , rootWidth = this.isBody ? this.$root.width() : this.$root.innerWidth()
+                    , orientation = Math.abs(window.orientation)
+                    , rootWidth = this.isBody ? (isMobile ? (orientation === 90 ? screen.height : screen.width) : this.$root.width()) : this.$root.innerWidth()
                     , bgWidth = rootWidth
-                    , rootHeight = this.isBody ? ( window.innerHeight ? window.innerHeight : this.$root.height() ) : this.$root.innerHeight()
+                    , rootHeight = this.isBody ? (isMobile ? (orientation === 90 ? screen.width : screen.height) : (window.innerHeight ? window.innerHeight : this.$root.height() )) : this.$root.innerHeight()
                     , bgHeight = bgWidth / this.$img.data('ratio')
                     , bgOffset;
+
+                // Fixes triggering of resize before image ratio is known (iOS 6 at least)
+                if (isNaN(bgHeight)) {
+                    return this;
+                }
 
                 // Make adjustments based on image ratio
                 if (bgHeight >= rootHeight) {
@@ -372,6 +379,19 @@
                 // IE6
                 (ieversion && ieversion <= 6)
             );
+    }());
+
+    var isMobile = (function () {
+
+        try {
+            document.createEvent("TouchEvent");
+            return true;
+        }
+
+        catch(e){
+            return false;
+        }
+
     }());
 
 }(jQuery, window));
