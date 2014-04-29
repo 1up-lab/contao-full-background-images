@@ -25,7 +25,7 @@ Upgrade Notes
 Compatibility
 -------------
 
-This extension requires the Contao Open Source CMS at version 3.2.0 or higher.
+This extension requires the Contao Open Source CMS at version 3.2.0 or higher and works in all modern browsers (Internet Explorer 8+).
 
 Contao extension repository
 ---------------------------
