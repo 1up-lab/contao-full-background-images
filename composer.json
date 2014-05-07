@@ -25,7 +25,7 @@
         "contao-community-alliance/composer-installer": "*"
     },
     "replace": {
-        "contao-legacy/contao-full-background-images": "self.version"
+        "contao-legacy/full-background-images": "self.version"
     },
     "autoload":{
         "classmap": [""]
