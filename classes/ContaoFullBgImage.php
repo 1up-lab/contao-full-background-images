@@ -34,7 +34,7 @@ class ContaoFullBgImage extends \Frontend
             return;
         }
 
-        $this->order = $this->$objPageBg->paOrder;
+        $this->order = $this->objPageBg->paOrder;
 
         $this->compile($objPage);
     }
@@ -94,25 +94,41 @@ class ContaoFullBgImage extends \Frontend
                 $this->speed   = $pageWithSettings->paSpeed;
                 $this->timeout = $pageWithSettings->paTimeout;
                 $this->sortBy  = $pageWithSettings->sortBy;
+                $this->order   = $pageWithSettings->paOrder;
                 break;
             case '1':
             case 'inherit1':
             case 'choose1':
-                if ($objPage->paSpeed == '' || $objPage->paTimeout == '') {
-                    $pageWithSettings   = $this->findParentWithSettings($objPage);
+                if ($objPage->paSpeed == '') {
+                    $pageWithSettings   = $this->findParentWithSettings($objPage, 'paSpeed');
                     $objPage->paSpeed   = $objPage->paSpeed   == '' ? $pageWithSettings->paSpeed   : $objPage->paSpeed;
+                }
+
+                if ($objPage->paTimeout == '') {
+                    $pageWithSettings = $this->findParentWithSettings($objPage, 'paTimeout');
                     $objPage->paTimeout = $objPage->paTimeout == '' ? $pageWithSettings->paTimeout : $objPage->paTimeout;
+                }
+
+                if ($objPage->sortBy == '') {
+                    $pageWithSettings = $this->findParentWithSettings($objPage, 'sortBy');
+                    $objPage->sortBy = $objPage->sortBy == '' ? $pageWithSettings->sortBy : $objPage->sortBy;
+                }
+
+                if ($objPage->order == '') {
+                    $objPage->order = $objPage->paOrder == '' ? $pageWithSettings->paOrder : $objPage->paOrder;
                 }
 
                 $this->mode    = $objPage->paImgMode;
                 $this->sortBy  = $objPage->sortBy;
                 $this->speed   = $objPage->paSpeed;
                 $this->timeout = $objPage->paTimeout;
+                $this->order   = $objPage->order;
+
                 break;
         }
     }
 
-    protected function findParentWithSettings(\PageModel $objPage)
+    protected function findParentWithSettings(\PageModel $objPage, $property = null)
     {
         if ($objPage->type === 'root') {
             $objPage->pam = $objPage->pam_root;
@@ -120,13 +136,17 @@ class ContaoFullBgImage extends \Frontend
             $objPage->paTimeout = $objPage->paRootTimeout;
         }
 
-        if ($objPage->paSpeed && $objPage->paTimeout) {
+        if ($property) {
+            if ($objPage->{$property} != '') return $objPage;
+        }
+
+        if ($objPage->paSpeed && $objPage->paTimeout && $objPage->sortBy != '') {
             return $objPage;
         }
 
         if (!$objPage->pid) return null;
 
-        return $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid));
+        return $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid), $property);
     }
 
     protected function compile(\PageModel $objPage)
