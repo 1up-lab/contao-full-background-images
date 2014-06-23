@@ -50,5 +50,5 @@ Issues and feature requests are tracked in the [Github issue tracker](https://gi
 
 When reporting a bug, it may be a good idea to reproduce it in the demo project
 built using the [Contao Open Source CMS](https://github.com/contao/core)
-to allow developers of the bundle to reproduce the issue by simply cloning it
+to allow developers of the extension to reproduce the issue by simply cloning it
 and following some steps.
