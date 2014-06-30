@@ -21,7 +21,7 @@
     },
     "require":{
         "php":">=5.3",
-        "contao/core":">=3.2,<3.3-dev",
+        "contao/core":">=3.2,<3.4-dev",
         "contao-community-alliance/composer-installer": "*"
     },
     "replace": {
