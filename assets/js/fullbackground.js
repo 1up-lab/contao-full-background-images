@@ -1,5 +1,7 @@
 ;(function ($) {
     $(document).ready(function() {
-        window.dispatchEvent(new Event("load-fullbg"));
+        var event = document.createEvent("Event");
+        event.initEvent("load-fullbg", true, true);
+        window.dispatchEvent(event);
     });
 })(jQuery);
