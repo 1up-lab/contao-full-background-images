@@ -1,12 +1,15 @@
+
 <script type="text/javascript">
-  ;(function($){
-    $(document).ready(function() {
-      $.backstretch(
-          [<?php echo $this->images; ?>],
-      {
-        duration: <?php echo $this->timeout; ?>,
-        fade: <?php echo $this->speed; ?>,
-      });
+    document.body.addEventListener('load-fullbg', function() {
+        ;(function($){
+            $(document).ready(function() {
+                $.backstretch(
+                    [<?php echo $this->images; ?>],
+                {
+                    duration: <?php echo $this->timeout; ?>,
+                    fade: <?php echo $this->speed; ?>,
+                });
+            });
+        })(jQuery);
     });
-  })(jQuery);
 </script>

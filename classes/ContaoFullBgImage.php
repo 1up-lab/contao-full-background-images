@@ -340,6 +340,7 @@ class ContaoFullBgImage extends \Frontend
             // add javascript and css files
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/jquery.backstretch.min.js|static';
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/fullbackground.js|static';
         }
     }
 }
