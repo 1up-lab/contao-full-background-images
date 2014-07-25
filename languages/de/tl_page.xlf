@@ -106,6 +106,22 @@
         <source>Don't add a background image.</source>
         <target>Deaktiviert die Hintergrundbilder.</target>
       </trans-unit>
+      <trans-unit id="tl_page.paRootEnableNav.0">
+        <source>Enable navigation</source>
+        <target>Navigation aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootEnableNav.1">
+        <source>Enables the navigation dots.</source>
+        <target>Aktiviert die Navigation (Slider-Navigation).</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootNavClick.0">
+        <source>Enable navigation click</source>
+        <target>Klickbare Navigationspunkte</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootNavClick.1">
+        <source>Enables clickable navigation dots.</source>
+        <target>Die Navigationspunkte können für Bildwechsel angeklickt werden.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
