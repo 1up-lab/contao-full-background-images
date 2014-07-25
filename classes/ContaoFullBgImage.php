@@ -80,6 +80,10 @@ class ContaoFullBgImage extends \Frontend
 
         $value = $objPage->pam . (int) $objPage->paOverwrite;
 
+        $pageWithSettings = $this->findParentWithSettings($objPage, 'paRootEnableNav');
+        $this->nav = (int) $pageWithSettings->paRootEnableNav;
+        $this->navClick = (int) $pageWithSettings->paRootNavClick;
+
         switch((string) $value)
         {
             case '':
@@ -336,9 +340,12 @@ class ContaoFullBgImage extends \Frontend
             $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
             $objTemplate->timeout = (int) $this->timeout;
             $objTemplate->speed = (int) $this->speed;
+            $objTemplate->nav = $this->nav ? 'true' : 'false';
+            $objTemplate->navClick = $this->navClick ? 'true' : 'false';
 
             // add javascript and css files
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();
+            $GLOBALS['TL_CSS'][] = 'system/modules/full-background-images/assets/css/style.css|static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/eventListener.polyfill.js|static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/jquery.backstretch.min.js|static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/fullbackground.js|static';
