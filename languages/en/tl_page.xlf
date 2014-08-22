@@ -92,6 +92,12 @@
       <trans-unit id="tl_page.paRootNavClick.1">
         <source>Enables clickable navigation dots.</source>
       </trans-unit>
+      <trans-unit id="tl_page.paRootNavPrevNext.0">
+        <source>Enable prev/next navigation</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootNavPrevNext.1">
+        <source>Enables previous/next navigation.</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

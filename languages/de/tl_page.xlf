@@ -122,6 +122,14 @@
         <source>Enables clickable navigation dots.</source>
         <target>Die Navigationspunkte können für Bildwechsel angeklickt werden.</target>
       </trans-unit>
+      <trans-unit id="tl_page.paRootNavPrevNext.0">
+        <source>Enable prev/next navigation</source>
+        <target>Vor-/zurück-Navigation</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootNavPrevNext.1">
+        <source>Enables previous/next navigation.</source>
+        <target>Aktiviert vor-/zurück-Navigation.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
