@@ -37,6 +37,15 @@ You can optionally define different settings for each subpage. It's also possibl
 #### Animation speed
 * Animation speed in ms
 
+#### Enable navigation
+If checked, a navigation element is displayed (default lower left corner)
+
+#### Enable navigation click
+If checked, you can click on the navigation items to change the background
+
+#### Enable prev/next navigation
+If checked, a prev and a next button (default style: arrow) is added to the navigation items
+
 ### Regular page / Internal redirect / 403 / 404
 #### Operation mode
 * `Inherit from parent` - Inherits settings from a parent page
