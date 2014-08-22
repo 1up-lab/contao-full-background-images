@@ -9,7 +9,8 @@
                     duration: <?php echo $this->timeout; ?>,
                     fade: <?php echo $this->speed; ?>,
                     nav: <?php echo $this->nav; ?>,
-                    navClick: <?php echo $this->navClick; ?>
+                    navClick: <?php echo $this->navClick; ?>,
+                    navPrevNext: <?php echo $this->navPrevNext; ?>
                 });
             });
         })(jQuery);
