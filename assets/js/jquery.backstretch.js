@@ -77,6 +77,7 @@
         , fade: 0           // Speed of fade transition between slides
         , nav: false        // Show navigation?
         , navClick: false   // Navigation clickable?
+        , navPrevNext: false // Navigation Prev/Next
     };
 
     /* STYLES
@@ -138,12 +139,31 @@
                self.$nav.append($('<li class="item"></li>').data('idx', idx));
             });
 
+            if (this.options.navPrevNext) {
+                self.$nav.prepend($('<li class="item-nav prev"></li>'));
+                self.$nav.append('<li class="item-nav next"></li>');
+            }
+
             this.$nav.appendTo(this.$container);
 
             if (this.options.navClick) {
-                $('.item', self.$nav).on('click', function() {
+                $('.item', self.$nav).on('click', function(event) {
+                    event.preventDefault();
                     self.show($(this).data('idx'));
+
+                    return false;
                 });
+
+                if (this.options.navPrevNext) {
+                    $('.item-nav').on('click', function(event) {
+                        event.preventDefault();
+
+                        if (event.target.hasClass('prev')) self.prev();
+                        if (event.target.hasClass('next')) self.next();
+
+                        return false;
+                    });
+                }
             }
         }
 

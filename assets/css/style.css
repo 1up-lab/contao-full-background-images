@@ -5,7 +5,7 @@
     width: 100%;
 }
 
-.bs-nav .item {
+.bs-nav .item, .bs-nav .item-nav {
     display: inline-block;
     *display: inline;
     zoom: 1;
@@ -32,4 +32,21 @@
 .bs-nav .item.active {
     background: #fff;
     opacity: 1;
+}
+
+.bs-nav .item-nav {
+    border-radius: 0;
+    width: 0;
+    height: 0;
+    border-style: inset;
+    -webkit-transform:rotate(360deg);
+}
+.bs-nav .item-nav.next {
+    border-width: 7px 0 7px 14px;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.bs-nav .item-nav.prev {
+    border-width: 7px 14px 7px 0;
+    border-color: transparent #ffffff transparent transparent;
 }
