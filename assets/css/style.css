@@ -41,6 +41,11 @@
     border-style: inset;
     -webkit-transform:rotate(360deg);
 }
+
+.bs-nav .item-nav:hover {
+    opacity: 1;
+}
+
 .bs-nav .item-nav.next {
     border-width: 7px 0 7px 14px;
     border-color: transparent transparent transparent #ffffff;
