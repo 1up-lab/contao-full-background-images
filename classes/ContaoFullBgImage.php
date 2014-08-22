@@ -83,6 +83,7 @@ class ContaoFullBgImage extends \Frontend
         $pageWithSettings = $this->findParentWithSettings($objPage, 'paRootEnableNav');
         $this->nav = (int) $pageWithSettings->paRootEnableNav;
         $this->navClick = (int) $pageWithSettings->paRootNavClick;
+        $this->navPrevNext = (int) $pageWithSettings->paRootNavPrevNext;
 
         switch((string) $value)
         {
@@ -342,6 +343,7 @@ class ContaoFullBgImage extends \Frontend
             $objTemplate->speed = (int) $this->speed;
             $objTemplate->nav = $this->nav ? 'true' : 'false';
             $objTemplate->navClick = $this->navClick ? 'true' : 'false';
+            $objTemplate->navPrevNext = $this->navPrevNext ? 'true' : 'false';
 
             // add javascript and css files
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();
