@@ -24,8 +24,8 @@ Upgrade Notes
 * Bugfix release (Bugfix sorting, see [#16](https://github.com/1up-lab/contao-full-background-images/issues/16)) **[v1.0.5](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.5)**
 * Bugfix release (Bugfix composer.json) **[v1.0.4](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.4)** 
 * Bugfix release (Bugfix templates) **[v1.0.3](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.3)** 
-* Bugfix release (translations and path fixes) **[v1.0.2](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.2)** 
-* Bugfix release (see [#12](https://github.com/1up-lab/contao-full-background-images/issues/12) & [#13](https://github.com/1up-lab/contao-full-background-images/issues/13)) **[v1.0.1](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.1)** 
+* Bugfix release (Translations and path fixes) **[v1.0.2](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.2)**
+* Bugfix release (See [#12](https://github.com/1up-lab/contao-full-background-images/issues/12) & [#13](https://github.com/1up-lab/contao-full-background-images/issues/13)) **[v1.0.1](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.1)**
 * First feature complete version **[v1.0.0](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.0)**
 
 Compatibility
