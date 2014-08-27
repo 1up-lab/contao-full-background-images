@@ -46,6 +46,12 @@ If checked, you can click on the navigation items to change the background
 #### Enable prev/next navigation
 If checked, a prev and a next button (default style: arrow) is added to the navigation items
 
+#### Center image horizontally
+If checked, the background image will be horizontally centered, else left aligned.
+
+#### Center image vertically
+If checked, the background image will be vertically centered, else top aligned.
+
 ### Regular page / Internal redirect / 403 / 404
 #### Operation mode
 * `Inherit from parent` - Inherits settings from a parent page
