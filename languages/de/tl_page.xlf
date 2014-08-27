@@ -130,6 +130,22 @@
         <source>Enables previous/next navigation.</source>
         <target>Aktiviert vor-/zurück-Navigation.</target>
       </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredX.0">
+        <source>Center image horizontally</source>
+        <target>Bild horizontal zentrieren</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredX.1">
+        <source>This parameter controls whether or not we center the image on the X axis.</source>
+        <target>Wenn gewählt, werden die Hintergrundbilder horizontal zentriert.</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredY.0">
+        <source>Center image vertically.</source>
+          <target>Bild vertikal zentrieren</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredY.1">
+        <source>This parameter controls whether or not we center the image on the Y axis.</source>
+        <target>Wenn gewählt, werden die Hintergrundbilder vertikal zentriert.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

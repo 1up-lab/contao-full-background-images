@@ -84,6 +84,8 @@ class ContaoFullBgImage extends \Frontend
         $this->nav = (int) $pageWithSettings->paRootEnableNav;
         $this->navClick = (int) $pageWithSettings->paRootNavClick;
         $this->navPrevNext = (int) $pageWithSettings->paRootNavPrevNext;
+        $this->centeredX = (int) $pageWithSettings->paRootCenteredX;
+        $this->centeredY = (int) $pageWithSettings->paRootCenteredY;
 
         switch((string) $value)
         {
@@ -344,6 +346,8 @@ class ContaoFullBgImage extends \Frontend
             $objTemplate->nav = $this->nav ? 'true' : 'false';
             $objTemplate->navClick = $this->navClick ? 'true' : 'false';
             $objTemplate->navPrevNext = $this->navPrevNext ? 'true' : 'false';
+            $objTemplate->centeredX = $this->centeredX ? 'true' : 'false';
+            $objTemplate->centeredY = $this->centeredY ? 'true' : 'false';
 
             // add javascript and css files
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();

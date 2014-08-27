@@ -98,6 +98,18 @@
       <trans-unit id="tl_page.paRootNavPrevNext.1">
         <source>Enables previous/next navigation.</source>
       </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredX.0">
+        <source>Center image horizontally</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredX.1">
+        <source>This parameter controls whether or not we center the image on the X axis.</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredY.0">
+        <source>Center image vertically</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paRootCenteredY.1">
+        <source>This parameter controls whether or not we center the image on the Y axis.</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

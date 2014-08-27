@@ -17,7 +17,7 @@ $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_disable'] = '';
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_choose']  = 'paSRC';
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_disable'] = '';
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_choose']  = 'paSRC,sortBy,paImgMode,paRootTimeout,paRootSpeed,paRootEnableNav,paRootNavClick,paRootNavPrevNext';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_choose']  = 'paSRC,sortBy,paImgMode,paRootTimeout,paRootSpeed,paRootEnableNav,paRootNavClick,paRootNavPrevNext,paRootCenteredX,paRootCenteredY';
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['paOverwrite']      = 'sortBy,paImgMode,paTimeout,paSpeed';
 
@@ -138,7 +138,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paRootEnableNav'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paRootEnableNav'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'eval'                    => array('tl_class'=>'w50 m12'),
+    'eval'                    => array('tl_class'=>'long clr'),
     'sql'                     => "char(1) NOT NULL default ''",
 );
 
@@ -147,7 +147,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paRootNavClick'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paRootNavClick'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'eval'                    => array('tl_class'=>'w50 m12'),
+    'eval'                    => array('tl_class'=>'long'),
     'sql'                     => "char(1) NOT NULL default ''",
 );
 
@@ -156,6 +156,27 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paRootNavPrevNext'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paRootNavPrevNext'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-    'eval'                    => array('tl_class'=>'w50 m12'),
+    'eval'                    => array('tl_class'=>'long'),
     'sql'                     => "char(1) NOT NULL default ''",
+);
+
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['paRootCenteredX'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paRootCenteredX'],
+    'exclude'                 => true,
+    'default'                 => 1,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'long'),
+    'sql'                     => "char(1) NOT NULL default '1'",
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['paRootCenteredY'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paRootCenteredY'],
+    'exclude'                 => true,
+    'default'                 => 1,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'long'),
+    'sql'                     => "char(1) NOT NULL default '1'",
 );
