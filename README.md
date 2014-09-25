@@ -18,6 +18,7 @@ The entry point of the documentation can be found in the file `resources/doc/ind
 
 Upgrade Notes
 -------------
+* Bugfix release (See [#21](https://github.com/1up-lab/contao-full-background-images/issues/21) & See [#22](https://github.com/1up-lab/contao-full-background-images/issues/22)
 * Bugfix release (Bugfix assets .htaccess) **[v1.3.1](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.3.1)**
 * Feature release (Added more options) **[v1.3.0](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.3.0)**
 * Update release (Updated composer.json) **[v1.2.1](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.2.1)**
