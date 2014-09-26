@@ -102,6 +102,16 @@
         var self = this;
 
         this.options = $.extend({}, $.fn.backstretch.defaults, options || {});
+        this.viewport = {};
+
+        var vp = $('meta[name=viewport]').attr("content") ? $('meta[name=viewport]').attr("content").split(",") : [];
+
+        $.each(vp, function() {
+            var temp = this.split("=");
+            self.viewport[temp[0]] = temp[1];
+        });
+
+        console.log(this.viewport);
 
         /* In its simplest form, we allow Backstretch to be called on an image path.
          * e.g. $.backstretch('/path/to/image.jpg')
@@ -214,6 +224,22 @@
                     , rootHeight = this.isBody ? (isMobile ? (landscape ? screen.width : screen.height) : (window.innerHeight ? window.innerHeight : this.$root.height() )) : this.$root.innerHeight()
                     , bgHeight = bgWidth / this.$img.data('ratio')
                     , bgOffset;
+
+                // mobile device and no viewport set
+                if (isMobile && $.isEmptyObject(this.viewport)) {
+                    rootWidth = $(document).width();
+                    bgWidth = rootWidth;
+                    rootHeight = $(document).height();
+                    bgHeight = bgWidth / this.$img.data('ratio')
+                } else if (isMobile && !$.isEmptyObject(this.viewport)){
+                    // if an explicit width is specified, use it, otherwise use device-width
+                    if (this.viewport.width != "device-width") {
+                        rootWidth = parseInt(this.viewport.width);
+                        bgWidth = rootWidth;
+                        rootHeight = $(document).height();
+                        bgHeight = bgWidth / this.$img.data('ratio')
+                    }
+                }
 
                 // Fixes triggering of resize before image ratio is known (iOS 6 at least)
                 if (isNaN(bgHeight)) {
