@@ -111,8 +111,6 @@
             self.viewport[temp[0]] = temp[1];
         });
 
-        console.log(this.viewport);
-
         /* In its simplest form, we allow Backstretch to be called on an image path.
          * e.g. $.backstretch('/path/to/image.jpg')
          * So, we need to turn this back into an array.
