@@ -14,20 +14,22 @@ class ContaoFullBgImage extends \Frontend
 
     public function generate(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular)
     {
-        if (TL_MODE == 'BE') return ;
+        if (TL_MODE == 'BE') {
+            return;
+        }
 
         $this->objPageBg = $this->searchForBackgroundImages($objPage);
 
         // Return if there are no files
-        if (!$this->objPageBg) return ;
+        if (!$this->objPageBg) {
+            return;
+        }
 
         // Get the file entries from the database
         $this->objFiles = \FilesModel::findMultipleByUuids($this->objPageBg->paSRC);
 
-        if ($this->objFiles === null)
-        {
-            if (!\Validator::isUuid($this->objPageBg->paSRC[0]))
-            {
+        if ($this->objFiles === null) {
+            if (!\Validator::isUuid($this->objPageBg->paSRC[0])) {
                 \System::log($GLOBALS['TL_LANG']['ERR']['version2format'], __METHOD__, TL_ERROR);
             }
 
@@ -49,14 +51,16 @@ class ContaoFullBgImage extends \Frontend
             $objPage->paTimeout = $objPage->paRootTimeout;
         }
 
-        switch($objPage->pam) {
+        switch ($objPage->pam) {
             case 'disable':
                 $objPage = null;
                 break;
 
             case '':
             case 'inherit':
-                if (!$objPage->pid) return null;
+                if (!$objPage->pid) {
+                    return null;
+                }
                 $objPage = $this->searchForBackgroundImages(\PageModel::findOneBy('id', $objPage->pid));
                 break;
 
@@ -78,7 +82,7 @@ class ContaoFullBgImage extends \Frontend
             $objPage->paTimeout = $objPage->paRootTimeout;
         }
 
-        $value = $objPage->pam . (int) $objPage->paOverwrite;
+        $value = $objPage->pam.(int) $objPage->paOverwrite;
 
         $pageWithSettings = $this->findParentWithSettings($objPage, 'paRootEnableNav');
         $this->nav = (int) $pageWithSettings->paRootEnableNav;
@@ -87,8 +91,7 @@ class ContaoFullBgImage extends \Frontend
         $this->centeredX = (int) $pageWithSettings->paRootCenteredX;
         $this->centeredY = (int) $pageWithSettings->paRootCenteredY;
 
-        switch((string) $value)
-        {
+        switch ((string) $value) {
             case '':
             case '0':
             case 'inherit':
@@ -144,14 +147,18 @@ class ContaoFullBgImage extends \Frontend
         }
 
         if ($property) {
-            if ($objPage->{$property} != '') return $objPage;
+            if ($objPage->{$property} != '') {
+                return $objPage;
+            }
         }
 
         if ($objPage->paSpeed && $objPage->paTimeout && $objPage->sortBy != '') {
             return $objPage;
         }
 
-        if (!$objPage->pid) return null;
+        if (!$objPage->pid) {
+            return null;
+        }
 
         return $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid), $property);
     }
@@ -166,89 +173,76 @@ class ContaoFullBgImage extends \Frontend
         $this->applySettings($objPage);
 
         while ($objFiles->next()) {
-
             // Continue if the files has been processed or does not exist
-            if (isset($images[$objFiles->path]) || !file_exists(TL_ROOT . '/' . $objFiles->path))
-            {
+            if (isset($images[$objFiles->path]) || !file_exists(TL_ROOT.'/'.$objFiles->path)) {
                 continue;
             }
 
             // Single files
-            if ($objFiles->type == 'file')
-            {
+            if ($objFiles->type == 'file') {
                 $objFile = new \File($objFiles->path, true);
 
-                if (!$objFile->isGdImage)
-                {
+                if (!$objFile->isGdImage) {
                     continue;
                 }
 
                 $arrMeta = $this->getMetaData($objFiles->meta, $objPage->language);
 
                 // Use the file name as title if none is given
-                if ($arrMeta['title'] == '')
-                {
+                if ($arrMeta['title'] == '') {
                     $arrMeta['title'] = specialchars(str_replace('_', ' ', $objFile->filename));
                 }
 
                 // Add the image
-                $images[$objFiles->path] = array
-                (
+                $images[$objFiles->path] = array(
                     'id'        => $objFiles->id,
                     'uuid'      => $objFiles->uuid,
                     'name'      => $objFile->basename,
                     'singleSRC' => $objFiles->path,
                     'alt'       => $arrMeta['title'],
                     'imageUrl'  => $arrMeta['link'],
-                    'caption'   => $arrMeta['caption']
+                    'caption'   => $arrMeta['caption'],
                 );
 
                 $auxDate[] = $objFile->mtime;
             }
 
             // Folders
-            else
-            {
+            else {
                 $objSubfiles = \FilesModel::findByPid($objFiles->uuid);
 
-                if ($objSubfiles === null)
-                {
+                if ($objSubfiles === null) {
                     continue;
                 }
 
-                while ($objSubfiles->next())
-                {
+                while ($objSubfiles->next()) {
                     // Skip subfolders
-                    if ($objSubfiles->type == 'folder')
-                    {
+                    if ($objSubfiles->type == 'folder') {
                         continue;
                     }
 
                     $objFile = new \File($objSubfiles->path, true);
 
-                    if (!$objFile->isGdImage)
-                    {
+                    if (!$objFile->isGdImage) {
                         continue;
                     }
 
                     $arrMeta = $this->getMetaData($objSubfiles->meta, $objPage->language);
 
                     // Use the file name as title if none is given
-                    if ($arrMeta['title'] == '')
-                    {
+                    if ($arrMeta['title'] == '') {
                         $arrMeta['title'] = specialchars(str_replace('_', ' ', $objFile->filename));
                     }
 
                     // Add the image
-                    $images[$objSubfiles->path] = array
-                    (
+                    $images[$objSubfiles->path] = array(
                         'id'        => $objSubfiles->id,
                         'uuid'      => $objSubfiles->uuid,
                         'name'      => $objFile->basename,
                         'singleSRC' => $objSubfiles->path,
                         'alt'       => $arrMeta['title'],
                         'imageUrl'  => $arrMeta['link'],
-                        'caption'   => $arrMeta['caption']
+                        'caption'   => $arrMeta['caption'],
                     );
 
                     $auxDate[] = $objFile->mtime;
@@ -257,8 +251,7 @@ class ContaoFullBgImage extends \Frontend
         }
 
         // Sort array
-        switch ($this->sortBy)
-        {
+        switch ($this->sortBy) {
             default:
             case 'name_asc':
                 uksort($images, 'basename_natcasecmp');
@@ -278,28 +271,23 @@ class ContaoFullBgImage extends \Frontend
 
             case 'meta': // Backwards compatibility
             case 'custom':
-                if ($this->order != '')
-                {
+                if ($this->order != '') {
                     $tmp = deserialize($this->order);
 
-                    if (!empty($tmp) && is_array($tmp))
-                    {
+                    if (!empty($tmp) && is_array($tmp)) {
                         // Remove all values
-                        $arrOrder = array_map(function(){}, array_flip($tmp));
+                        $arrOrder = array_map(function () {}, array_flip($tmp));
 
                         // Move the matching elements to their position in $arrOrder
-                        foreach ($images as $k=>$v)
-                        {
-                            if (array_key_exists($v['uuid'], $arrOrder))
-                            {
+                        foreach ($images as $k => $v) {
+                            if (array_key_exists($v['uuid'], $arrOrder)) {
                                 $arrOrder[$v['uuid']] = $v;
                                 unset($images[$k]);
                             }
                         }
 
                         // Append the left-over images at the end
-                        if (!empty($images))
-                        {
+                        if (!empty($images)) {
                             $arrOrder = array_merge($arrOrder, array_values($images));
                         }
 
@@ -320,14 +308,13 @@ class ContaoFullBgImage extends \Frontend
         $objImages = array();
         $imageIndex = 0;
 
-        if (count($images))
-        {
+        if (count($images)) {
             if ($this->mode === 'paSingleRandom') {
                 mt_srand();
                 $imageIndex = mt_rand(0, count($images)-1);
             }
 
-            foreach($images as $image) {
+            foreach ($images as $image) {
                 $objCell = new \stdClass();
                 $this->addImageToTemplate($objCell, $image, $intMaxWidth);
                 $objImages[] = $objCell;
@@ -340,7 +327,7 @@ class ContaoFullBgImage extends \Frontend
             $strTemplate = 'oneup_ct_fullbgimage';
 
             $objTemplate = new \FrontendTemplate($strTemplate);
-            $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
+            $objTemplate->images = implode(',', array_map(function ($objImage) {return '"'.$objImage->src.'"';}, $objImages));
             $objTemplate->timeout = (int) $this->timeout;
             $objTemplate->speed = (int) $this->speed;
             $objTemplate->nav = $this->nav ? 'true' : 'false';
