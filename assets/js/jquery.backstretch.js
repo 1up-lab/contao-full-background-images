@@ -61,7 +61,7 @@
         }
 
         // Return the instance
-        return $('body')
+        return $(element)
             .backstretch(images, options)
             .data('backstretch');
     };
