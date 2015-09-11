@@ -20,24 +20,31 @@
         "source":"https://github.com/1up-lab/contao-full-background-images"
     },
     "require":{
-        "php":">=5.3",
+        "php":">=5.4",
         "contao/core":">=3.2,<3.6-dev",
         "contao-community-alliance/composer-installer": "*"
     },
     "replace": {
         "contao-legacy/full-background-images": "self.version"
     },
-    "autoload":{
-        "classmap": [""]
+    "conflict": {
+        "contao/core": "3.4.0"
     },
-    "extra":{
+    "autoload": {
+        "psr-4": {
+            "Oneup\\Contao\\": "src"
+        }
+    },
+    "extra": {
         "contao": {
-            "sources":{
-                "": "system/modules/full-background-images"
+            "sources": {
+                "contao": "system/modules/full-background-images"
             }
         },
         "branch-alias": {
             "dev-master": "1.4.x-dev"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
