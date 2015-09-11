@@ -55,9 +55,13 @@
     };
 
     // If no element is supplied, we'll attach to body
-    $.backstretch = function (images, options) {
+    $.backstretch = function (element, images, options) {
+        if (!$(element).length) {
+            element = 'body';
+        }
+
         // Return the instance
-        return $('body')
+        return $(element)
             .backstretch(images, options)
             .data('backstretch');
     };
