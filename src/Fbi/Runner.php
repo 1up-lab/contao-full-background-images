@@ -64,8 +64,8 @@ class Runner extends \Frontend
         $this->nav          = (int) $this->pageWithBackgrounds->fbiEnableNav;
         $this->navClick     = (int) $this->pageWithBackgrounds->fbiNavClick;
         $this->navPrevNext  = (int) $this->pageWithBackgrounds->fbiNavPrevNext;
-        $this->centerX    = (int) $this->pageWithBackgrounds->fbiCenterX;
-        $this->centerY    = (int) $this->pageWithBackgrounds->fbiCenterY;
+        $this->centerX      = (int) $this->pageWithBackgrounds->fbiCenterX;
+        $this->centerY      = (int) $this->pageWithBackgrounds->fbiCenterY;
 
         $this->compile($page);
     }
@@ -257,8 +257,8 @@ class Runner extends \Frontend
             $templateObject->nav            = $this->nav ? 'true' : 'false';
             $templateObject->navClick       = $this->navClick ? 'true' : 'false';
             $templateObject->navPrevNext    = $this->navPrevNext ? 'true' : 'false';
-            $templateObject->centeredX      = $this->centeredX ? 'true' : 'false';
-            $templateObject->centeredY      = $this->centeredY ? 'true' : 'false';
+            $templateObject->centerX        = $this->centerY ? 'true' : 'false';
+            $templateObject->centerY        = $this->centerY ? 'true' : 'false';
 
             // add javascript and css files
             $GLOBALS['TL_CSS'][] = 'system/modules/full-background-images/assets/css/style.css||static';
