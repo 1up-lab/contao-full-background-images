@@ -94,14 +94,10 @@ class Runner extends \Frontend
 
                 $arrMeta = $this->getMetaData($file->meta, $page->language);
 
-                if (empty($arrMeta))
-                {
-                    if ($this->metaIgnore)
-                    {
+                if (empty($arrMeta)) {
+                    if ($this->metaIgnore) {
                         continue;
-                    }
-                    elseif ($page->rootFallbackLanguage !== null)
-                    {
+                    } elseif ($page->rootFallbackLanguage !== null) {
                         $arrMeta = $this->getMetaData($file->meta, $page->rootFallbackLanguage);
                     }
                 }
