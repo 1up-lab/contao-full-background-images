@@ -18,6 +18,7 @@ The entry point of the documentation can be found in the file `resources/doc/ind
 
 Upgrade Notes
 -------------
+* Rewrite release (Complete rewrite) **[2.0.0](https://github.com/1up-lab/contao-full-background-images/releases/tag/2.0.0)**
 * Feature release (Fixed issues with missing viewport tag) **[v1.4.0](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.4.0)**
 * Bugfix release (See [#21](https://github.com/1up-lab/contao-full-background-images/issues/21) & [#22](https://github.com/1up-lab/contao-full-background-images/issues/22)) **[v1.3.2](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.3.2)**
 * Bugfix release (Bugfix assets .htaccess) **[v1.3.1](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.3.1)**
@@ -33,6 +34,11 @@ Upgrade Notes
 * Bugfix release (Translations and path fixes) **[v1.0.2](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.2)**
 * Bugfix release (See [#12](https://github.com/1up-lab/contao-full-background-images/issues/12) & [#13](https://github.com/1up-lab/contao-full-background-images/issues/13)) **[v1.0.1](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.1)**
 * First feature complete version **[v1.0.0](https://github.com/1up-lab/contao-full-background-images/releases/tag/v1.0.0)**
+
+Update from v1.x.x to 2.x.x
+---------------------------
+
+It's NOT possible to update from v1.x.x to 2.x.x without any data loss. Backup your database before updating! 
 
 Compatibility
 -------------
