@@ -14,7 +14,8 @@ Documentation
 
 The entry point of the documentation can be found in the file `resources/doc/index.md`
 
-[Read the documentation for master](https://github.com/1up-lab/contao-full-background-images/blob/master/resources/doc/index.md)
+[Read the documentation for master/2.x.x](https://github.com/1up-lab/contao-full-background-images/blob/master/resources/doc/index.md)
+[Read the documentation for v1.x.x](https://github.com/1up-lab/contao-full-background-images/blob/v1.5.0-beta/resources/doc/index.md)
 
 Upgrade Notes
 -------------
