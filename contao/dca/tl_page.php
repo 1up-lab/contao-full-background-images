@@ -9,7 +9,25 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'] = array_merge(
     ]
 );
 
+$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace(
+    'includeChmod;',
+    'includeChmod;{fbi_legend:hide},fbi;',
+    $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
+);
+
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
+    'includeChmod;',
+    'includeChmod;{fbi_legend:hide},fbi;',
+    $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
+);
+
+$GLOBALS['TL_DCA']['tl_page']['palettes']['error_403'] = str_replace(
+    'includeChmod;',
+    'includeChmod;{fbi_legend:hide},fbi;',
+    $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
+);
+
+$GLOBALS['TL_DCA']['tl_page']['palettes']['error_404'] = str_replace(
     'includeChmod;',
     'includeChmod;{fbi_legend:hide},fbi;',
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
