@@ -56,6 +56,7 @@ class Runner extends \Frontend
             return;
         }
 
+        $this->fbiTemplate  = $this->pageWithBackgrounds->fbiTemplate;
         $this->mode         = $this->pageWithBackgrounds->fbiImgMode;
         $this->sortBy       = $this->pageWithBackgrounds->sortBy;
         $this->speed        = $this->pageWithBackgrounds->fbiSpeed;
@@ -242,6 +243,10 @@ class Runner extends \Frontend
             }
 
             $template = 'fbi_default';
+
+            if ($this->fbiTemplate != '' && TL_MODE == 'FE') {
+                $template = $this->fbiTemplate;
+            }
 
             $templateObject = new \FrontendTemplate($template);
 

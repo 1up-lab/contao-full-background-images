@@ -12,8 +12,8 @@
                     nav: <?php echo $this->nav; ?>,
                     navClick: <?php echo $this->navClick; ?>,
                     navPrevNext: <?php echo $this->navPrevNext; ?>,
-                    centeredX: <?php echo $this->centeredX; ?>,
-                    centeredY: <?php echo $this->centeredY; ?>
+                    centeredX: <?php echo $this->centerX; ?>,
+                    centeredY: <?php echo $this->centerY; ?>
 
                 });
             });

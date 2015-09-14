@@ -20,7 +20,8 @@ $GLOBALS['TL_DCA']['tl_page']['subpalettes'] = array_merge(
     [
         'fbi_inherit'   => '',
         'fbi_disable'   => '',
-        'fbi_choose'    => 'fbiSRC,sortBy,fbiImgMode,fbiTimeout,fbiSpeed,fbiEnableNav,fbiNavClick,fbiNavPrevNext,fbiCenterX,fbiCenterY',
+        'fbi_choose'    => 'fbiSRC,sortBy,fbiImgMode,fbiTimeout,fbiSpeed,fbiEnableNav,fbiNavClick,fbiNavPrevNext,
+                            fbiCenterX,fbiCenterY,fbiTemplate;',
     ]
 );
 
@@ -40,6 +41,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
             'eval'      => [
                 'helpwizard'        => true,
                 'submitOnChange'    => true,
+                'tl_class'      => 'clr',
             ],
             'reference' => &$GLOBALS['TL_LANG']['tl_page'],
             'sql'       => "varchar(32) NOT NULL default ''",
@@ -106,6 +108,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
             'eval'      => [
                 'rgxp'      => 'digit',
                 'tl_class'  => 'w50',
+                'mandatory' => true,
             ],
             'sql'       => "varchar(10) NOT NULL default ''",
         ],
@@ -117,6 +120,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
             'eval'      => [
                 'rgxp'      => 'digit',
                 'tl_class'  => 'w50',
+                'mandatory' => true,
             ],
             'sql'       => "varchar(10) NOT NULL default ''",
         ],
@@ -166,6 +170,21 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
                 'tl_class' => 'w50',
             ],
             'sql'       => "char(1) NOT NULL default '1'",
+        ],
+        'fbiTemplate' => [
+            'label'             => &$GLOBALS['TL_LANG']['tl_page']['fbiTemplate'],
+            'exclude'           => true,
+            'inputType'         => 'select',
+            'options_callback'  => [
+                'Oneup\Contao\Fbi\Helper\Dca\DcaHelper',
+                'getElementTemplates',
+            ],
+            'eval'              => [
+                'includeBlankOption'    => true,
+                'chosen'                => true,
+                'tl_class'              => 'w50',
+            ],
+            'sql'               => "varchar(64) NOT NULL default ''",
         ],
     ]
 );
