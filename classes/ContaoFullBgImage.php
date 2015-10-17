@@ -81,6 +81,7 @@ class ContaoFullBgImage extends \Frontend
         $value = $objPage->pam . (int) $objPage->paOverwrite;
 
         $pageWithSettings = $this->findParentWithSettings($objPage, 'paRootEnableNav');
+
         $this->nav = (int) $pageWithSettings->paRootEnableNav;
         $this->navClick = (int) $pageWithSettings->paRootNavClick;
         $this->navPrevNext = (int) $pageWithSettings->paRootNavPrevNext;
@@ -141,6 +142,8 @@ class ContaoFullBgImage extends \Frontend
             $objPage->pam = $objPage->pam_root;
             $objPage->paSpeed = $objPage->paRootSpeed;
             $objPage->paTimeout = $objPage->paRootTimeout;
+            $objPage->centeredX = $objPage->paRootCenteredX;
+            $objPage->centeredY = $objPage->paRootCenteredY;
         }
 
         if ($property) {
@@ -151,7 +154,7 @@ class ContaoFullBgImage extends \Frontend
             return $objPage;
         }
 
-        if (!$objPage->pid) return null;
+        if (!$objPage->pid && $objPage->type === 'root') return $objPage;
 
         return $this->findParentWithSettings(\PageModel::findOneBy('id', $objPage->pid), $property);
     }
