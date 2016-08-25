@@ -109,8 +109,8 @@ class Runner extends \Frontend
 
                 // Add the image
                 $images[$file->path] = [
-                    'id'        => $file->id,
-                    'uuid'      => $file->uuid,
+                    'id'        => $backgrounds->id,
+                    'uuid'      => $backgrounds->uuid,
                     'name'      => $file->basename,
                     'singleSRC' => $file->path,
                     'alt'       => $arrMeta['title'],
@@ -148,8 +148,8 @@ class Runner extends \Frontend
 
                     // Add the image
                     $images[$file->path] = [
-                        'id'        => $file->id,
-                        'uuid'      => $file->uuid,
+                        'id'        => $subfiles->id,
+                        'uuid'      => $subfiles->uuid,
                         'name'      => $file->basename,
                         'singleSRC' => $file->path,
                         'alt'       => $arrMeta['title'],
