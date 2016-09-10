@@ -38,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_page']['subpalettes'] = array_merge(
     [
         'fbi_inherit'   => '',
         'fbi_disable'   => '',
-        'fbi_choose'    => 'fbiSRC,sortBy,fbiImgMode,fbiTimeout,fbiSpeed,fbiEnableNav,fbiNavClick,fbiNavPrevNext,
+        'fbi_choose'    => 'fbiSRC,sortBy,fbiLimit,fbiImgMode,fbiTimeout,fbiSpeed,fbiEnableNav,fbiNavClick,fbiNavPrevNext,
                             fbiCenterX,fbiCenterY,fbiTemplate;',
     ]
 );
@@ -99,6 +99,17 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
                 'tl_class' => 'w50',
             ],
             'sql'       => "varchar(32) NOT NULL default ''",
+        ],
+        'fbiLimit' => [
+            'label'     => &$GLOBALS['TL_LANG']['tl_content']['fbiLimit'],
+            'default'   => 0,
+            'exclude'   => true,
+            'inputType' => 'text',
+            'eval'      => [
+                'rgxp'      => 'digit',
+                'tl_class'  => 'w50',
+            ],
+            'sql'       => "varchar(10) NOT NULL default 0",
         ],
         'fbiImgMode' => [
             'label'     => &$GLOBALS['TL_LANG']['tl_page']['fbiImgMode'],

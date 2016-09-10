@@ -22,6 +22,14 @@
         <source>Select the mode for the background images.</source>
         <target>Wählen Sie einen Bildmodus aus.</target>
       </trans-unit>
+      <trans-unit id="tl_page.fbiLimit.0">
+        <source>Number of Image</source>
+        <target>Anzahl Bilder</target>
+      </trans-unit>
+      <trans-unit id="tl_page.fbiLimit.1">
+        <source>"0" will show all the background images.</source>
+        <target>Bei "0" werden alle Bilder angezeigt.</target>
+      </trans-unit>
       <trans-unit id="tl_page.single.0">
         <source>Single image</source>
         <target>Einzelbild</target>

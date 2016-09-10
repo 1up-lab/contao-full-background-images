@@ -62,6 +62,7 @@ class Runner extends \Frontend
         $this->speed        = $this->pageWithBackgrounds->fbiSpeed;
         $this->timeout      = $this->pageWithBackgrounds->fbiTimeout;
         $this->order        = $this->pageWithBackgrounds->fbiOrder;
+        $this->fbiLimit     = (int) $this->pageWithBackgrounds->fbiLimit;
         $this->nav          = (int) $this->pageWithBackgrounds->fbiEnableNav;
         $this->navClick     = (int) $this->pageWithBackgrounds->fbiNavClick;
         $this->navPrevNext  = (int) $this->pageWithBackgrounds->fbiNavPrevNext;
@@ -213,6 +214,11 @@ class Runner extends \Frontend
                     shuffle($images);
                     break;
             }
+        }
+
+        // Limited images
+        if ($this->fbiLimit && 0 != $this->fbiLimit && count($images) > $this->fbiLimit) {
+            $images = array_slice($images, 0, $this->fbiLimit);
         }
 
         $images         = array_values($images);
