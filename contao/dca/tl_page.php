@@ -109,7 +109,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = array_merge(
                 'rgxp'      => 'digit',
                 'tl_class'  => 'w50',
             ],
-            'sql'       => "varchar(10) NOT NULL default 0",
+            'sql'       => "varchar(10) NOT NULL default '0'",
         ],
         'fbiImgMode' => [
             'label'     => &$GLOBALS['TL_LANG']['tl_page']['fbiImgMode'],
