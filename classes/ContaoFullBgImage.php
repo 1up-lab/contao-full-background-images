@@ -365,7 +365,7 @@ class ContaoFullBgImage extends \Frontend
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();
             $GLOBALS['TL_CSS'][] = 'system/modules/full-background-images/assets/css/style.css||static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/eventListener.polyfill.js|static';
-            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/jquery.backstretch.js|static';
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/jquery.backstretch.min.js|static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/fullbackground.js|static';
         }
     }
