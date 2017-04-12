@@ -20,6 +20,12 @@
       <trans-unit id="tl_page.overwriteModule.1">
         <source>If enabled, the settings from the parent page will be overwritten with these below!</source>
       </trans-unit>
+      <trans-unit id="tl_page.paImgCaption.0">
+        <source>Image Caption</source>
+      </trans-unit>
+      <trans-unit id="tl_page.paImgCaption.1">
+        <source>If enabled, the background image caption will be shown.</source>
+      </trans-unit>
       <trans-unit id="tl_page.paImgMode.0">
         <source>Image mode</source>
       </trans-unit>

@@ -26,6 +26,14 @@
         <source>If enabled, the settings from the parent page will be overwritten with these below!</source>
         <target>Wenn aktiv, werden die übergeordneten Einstellungen durch unten folgenden überschrieben.</target>
       </trans-unit>
+      <trans-unit id="tl_page.paImgCaption.0">
+        <source>Image Caption</source>
+        <target>Bildbeschreibung</target>
+      </trans-unit>
+      <trans-unit id="tl_page.paImgCaption.1">
+        <source>If enabled, the background image caption will be shown.</source>
+        <target>Wenn aktiv, wird die Bildbeschreibung angezeigt.</target>
+      </trans-unit>
       <trans-unit id="tl_page.paImgMode.0">
         <source>Image mode</source>
         <target>Bildmodus</target>

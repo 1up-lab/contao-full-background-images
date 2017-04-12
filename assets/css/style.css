@@ -1,3 +1,11 @@
+.bs-caption {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin-left: 40px;
+    color: white;
+}
+
 .bs-nav {
     position: fixed;
     left: 0;
