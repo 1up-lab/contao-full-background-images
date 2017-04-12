@@ -81,7 +81,6 @@ class ContaoFullBgImage extends \Frontend
         $value = $objPage->pam . (int) $objPage->paOverwrite;
 
         $pageWithSettings = $this->findParentWithSettings($objPage, 'paRootEnableNav');
-
         $this->nav = (int) $pageWithSettings->paRootEnableNav;
         $this->navClick = (int) $pageWithSettings->paRootNavClick;
         $this->navPrevNext = (int) $pageWithSettings->paRootNavPrevNext;
@@ -98,6 +97,7 @@ class ContaoFullBgImage extends \Frontend
                 // take parent settings
                 $pageWithSettings = $this->findParentWithSettings($objPage);
 
+                $this->caption = $pageWithSettings->paImgCaption;
                 $this->mode    = $pageWithSettings->paImgMode;
                 $this->speed   = $pageWithSettings->paSpeed;
                 $this->timeout = $pageWithSettings->paTimeout;
@@ -126,6 +126,7 @@ class ContaoFullBgImage extends \Frontend
                     $objPage->order = $objPage->paOrder == '' ? $pageWithSettings->paOrder : $objPage->paOrder;
                 }
 
+                $this->caption = $objPage->paImgCaption;
                 $this->mode    = $objPage->paImgMode;
                 $this->sortBy  = $objPage->sortBy;
                 $this->speed   = $objPage->paSpeed;
@@ -138,6 +139,7 @@ class ContaoFullBgImage extends \Frontend
 
     protected function findParentWithSettings(\PageModel $objPage, $property = null)
     {
+
         if ($objPage->type === 'root') {
             $objPage->pam = $objPage->pam_root;
             $objPage->paSpeed = $objPage->paRootSpeed;
@@ -148,10 +150,6 @@ class ContaoFullBgImage extends \Frontend
 
         if ($property) {
             if ($objPage->{$property} != '') return $objPage;
-        }
-
-        if ($objPage->paSpeed && $objPage->paTimeout && $objPage->sortBy != '') {
-            return $objPage;
         }
 
         if (!$objPage->pid && $objPage->type === 'root') return $objPage;
@@ -201,7 +199,8 @@ class ContaoFullBgImage extends \Frontend
                     'uuid'      => $objFiles->uuid,
                     'name'      => $objFile->basename,
                     'singleSRC' => $objFiles->path,
-                    'alt'       => $arrMeta['title'],
+                    'alt'       => ($arrMeta['caption'] ?: $arrMeta['title']),
+                    'title'     => $arrMeta['title'],
                     'imageUrl'  => $arrMeta['link'],
                     'caption'   => $arrMeta['caption']
                 );
@@ -249,7 +248,8 @@ class ContaoFullBgImage extends \Frontend
                         'uuid'      => $objSubfiles->uuid,
                         'name'      => $objFile->basename,
                         'singleSRC' => $objSubfiles->path,
-                        'alt'       => $arrMeta['title'],
+                        'alt'       => ($arrMeta['caption'] ?: $arrMeta['title']),
+                        'title'     => $arrMeta['title'],
                         'imageUrl'  => $arrMeta['link'],
                         'caption'   => $arrMeta['caption']
                     );
@@ -342,10 +342,19 @@ class ContaoFullBgImage extends \Frontend
 
             $strTemplate = 'oneup_ct_fullbgimage';
 
+
             $objTemplate = new \FrontendTemplate($strTemplate);
-            $objTemplate->images = implode(',', array_map(function($objImage){return '"' . $objImage->src . '"';}, $objImages));
+            $objTemplate->images = implode(",",array_map(function($objImage){
+                $imgObj = new \stdClass();
+                $imgObj->src = $objImage->src;
+                $imgObj->alt = $objImage->alt;
+                $imgObj->title = $objImage->title;
+                $imgObj->caption = $objImage->caption;
+                return json_encode($imgObj);
+            }, $objImages));
             $objTemplate->timeout = (int) $this->timeout;
             $objTemplate->speed = (int) $this->speed;
+            $objTemplate->caption = $this->caption ? 'true' : 'false';
             $objTemplate->nav = $this->nav ? 'true' : 'false';
             $objTemplate->navClick = $this->navClick ? 'true' : 'false';
             $objTemplate->navPrevNext = $this->navPrevNext ? 'true' : 'false';
@@ -356,7 +365,7 @@ class ContaoFullBgImage extends \Frontend
             $GLOBALS['TL_BODY'][] = $objTemplate->parse();
             $GLOBALS['TL_CSS'][] = 'system/modules/full-background-images/assets/css/style.css||static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/eventListener.polyfill.js|static';
-            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/jquery.backstretch.min.js|static';
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/jquery.backstretch.js|static';
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/full-background-images/assets/js/fullbackground.js|static';
         }
     }

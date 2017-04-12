@@ -5,15 +5,16 @@
             $(document).ready(function() {
                 $.backstretch(
                     'body',
-                    [<?php echo $this->images; ?>],
+                    [<?= $this->images; ?>],
                 {
-                    duration: <?php echo $this->timeout; ?>,
-                    fade: <?php echo $this->speed; ?>,
-                    nav: <?php echo $this->nav; ?>,
-                    navClick: <?php echo $this->navClick; ?>,
-                    navPrevNext: <?php echo $this->navPrevNext; ?>,
-                    centeredX: <?php echo $this->centeredX; ?>,
-                    centeredY: <?php echo $this->centeredY; ?>
+                    caption: <?= $this->caption ?>,
+                    duration: <?= $this->timeout; ?>,
+                    fade: <?= $this->speed; ?>,
+                    nav: <?= $this->nav; ?>,
+                    navClick: <?= $this->navClick; ?>,
+                    navPrevNext: <?= $this->navPrevNext; ?>,
+                    centeredX: <?= $this->centeredX; ?>,
+                    centeredY: <?= $this->centeredY; ?>
 
                 });
             });

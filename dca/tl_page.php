@@ -17,9 +17,9 @@ $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_disable'] = '';
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_choose']  = 'paSRC';
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_disable'] = '';
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_choose']  = 'paSRC,sortBy,paImgMode,paRootTimeout,paRootSpeed,paRootEnableNav,paRootNavClick,paRootNavPrevNext,paRootCenteredX,paRootCenteredY';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['pam_root_choose']  = 'paSRC,sortBy,paImgMode,paImgCaption,paRootTimeout,paRootSpeed,paRootEnableNav,paRootNavClick,paRootNavPrevNext,paRootCenteredX,paRootCenteredY';
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['paOverwrite']      = 'sortBy,paImgMode,paTimeout,paSpeed';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['paOverwrite']      = 'sortBy,paImgMode,paImgCaption,paTimeout,paSpeed';
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['pam'] = array
 (
@@ -91,6 +91,15 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['paImgMode'] = array
     'reference'               => &$GLOBALS['TL_LANG']['tl_page'],
     'eval'                    => array('helpwizard'=>true, 'chosen'=>true),
     'sql'                     => "varchar(32) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['paImgCaption'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['paImgCaption'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'long clr'),
+    'sql'                     => "char(1) NOT NULL default ''",
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['paTimeout'] = array
