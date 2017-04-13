@@ -57,6 +57,7 @@ class Runner extends \Frontend
         }
 
         $this->fbiTemplate  = $this->pageWithBackgrounds->fbiTemplate;
+        $this->caption      = (int) $this->pageWithBackgrounds->fbiImgCaption;
         $this->mode         = $this->pageWithBackgrounds->fbiImgMode;
         $this->sortBy       = $this->pageWithBackgrounds->sortBy;
         $this->speed        = $this->pageWithBackgrounds->fbiSpeed;
@@ -93,13 +94,13 @@ class Runner extends \Frontend
                     continue;
                 }
 
-                $arrMeta = $this->getMetaData($file->meta, $page->language);
+                $arrMeta = $this->getMetaData($backgrounds->meta, $page->language);
 
                 if (empty($arrMeta)) {
                     if ($this->metaIgnore) {
                         continue;
                     } elseif ($page->rootFallbackLanguage !== null) {
-                        $arrMeta = $this->getMetaData($file->meta, $page->rootFallbackLanguage);
+                        $arrMeta = $this->getMetaData($backgrounds->meta, $page->rootFallbackLanguage);
                     }
                 }
 
@@ -114,7 +115,8 @@ class Runner extends \Frontend
                     'uuid'      => $backgrounds->uuid,
                     'name'      => $file->basename,
                     'singleSRC' => $file->path,
-                    'alt'       => $arrMeta['title'],
+                    'alt'       => ($arrMeta['caption'] ?: $arrMeta['title']),
+                    'title'     => $arrMeta['title'],
                     'imageUrl'  => $arrMeta['link'],
                     'caption'   => $arrMeta['caption'],
                 ];
@@ -153,7 +155,8 @@ class Runner extends \Frontend
                         'uuid'      => $subfiles->uuid,
                         'name'      => $file->basename,
                         'singleSRC' => $file->path,
-                        'alt'       => $arrMeta['title'],
+                        'alt'       => ($arrMeta['caption'] ?: $arrMeta['title']),
+                        'title'     => $arrMeta['title'],
                         'imageUrl'  => $arrMeta['link'],
                         'caption'   => $arrMeta['caption'],
                     ];
@@ -255,12 +258,18 @@ class Runner extends \Frontend
             $templateObject->images = implode(
                 ',',
                 array_map(function ($image) {
-                    return '"'.$image->src.'"';
+                    $imgObj = new \stdClass();
+                    $imgObj->src = $image->src;
+                    $imgObj->alt = $image->alt;
+                    $imgObj->title = $image->title;
+                    $imgObj->caption = $image->caption;
+                return json_encode($imgObj);
                 }, $imageObjects)
             );
 
             $templateObject->timeout        = (int) $this->timeout ? $this->timeout : 12000;
             $templateObject->speed          = (int) $this->speed ? $this->speed : 1200;
+            $templateObject->caption        = $this->caption ? 'true' : 'false';
             $templateObject->nav            = $this->nav ? 'true' : 'false';
             $templateObject->navClick       = $this->navClick ? 'true' : 'false';
             $templateObject->navPrevNext    = $this->navPrevNext ? 'true' : 'false';
@@ -271,7 +280,7 @@ class Runner extends \Frontend
             $GLOBALS['TL_CSS'][] = 'system/modules/full-background-images/assets/css/style.css||static';
             $GLOBALS['TL_BODY'][] = $templateObject->parse();
             $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="system/modules/full-background-images/assets/js/eventListener.polyfill.js"></script>';
-            $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="system/modules/full-background-images/assets/js/jquery.backstretch.min.js"></script>';
+            $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="system/modules/full-background-images/assets/js/jquery.backstretch.js"></script>';
             $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="system/modules/full-background-images/assets/js/fullbackground.js"></script>';
         }
     }

@@ -14,6 +14,14 @@
         <source>Contao full background images mode</source>
         <target>Contao Full Background Images Funktion</target>
       </trans-unit>
+      <trans-unit id="tl_page.fbiImgCaption.0">
+        <source>Image caption</source>
+        <target>Bildbeschreibung</target>
+      </trans-unit>
+      <trans-unit id="tl_page.fbiImgCaption.1">
+        <source>If enabled, the background image caption will be shown.</source>
+        <target>Wenn aktiv, wird die Bildbeschreibung angezeigt.</target>
+      </trans-unit>
       <trans-unit id="tl_page.fbiImgMode.0">
         <source>Image mode</source>
         <target>Bildmodus</target>

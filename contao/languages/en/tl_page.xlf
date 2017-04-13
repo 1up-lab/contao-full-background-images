@@ -11,6 +11,12 @@
       <trans-unit id="tl_page.fbi_legend">
         <source>Contao full background images mode</source>
       </trans-unit>
+      <trans-unit id="tl_page.fbiImgCaption.0">
+        <source>Image caption</source>
+      </trans-unit>
+      <trans-unit id="tl_page.fbiImgCaption.1">
+        <source>If enabled, the background image caption will be shown.</source>
+      </trans-unit>
       <trans-unit id="tl_page.fbiImgMode.0">
         <source>Image mode</source>
       </trans-unit>

@@ -34,7 +34,7 @@
             if (obj) {
 
                 // Is this a method they're trying to execute?
-                if (typeof images == 'string' && typeof obj[images] == 'function') {
+                if (typeof images.src == 'string' && typeof obj[images] == 'function') {
                     // Call the method
                     obj[images](options);
 
@@ -123,7 +123,10 @@
 
         // Preload images
         $.each(this.images, function () {
-            $('<img />')[0].src = this;
+            var img = $('<img />')[0]
+            img.src = this.src;
+            img.alt = this.alt;
+            img.title = this.title;
         });
 
         // Convenience reference to know if the container is body.
@@ -141,6 +144,14 @@
         // Don't create a new wrap if one already exists (from a previous instance of Backstretch)
         var $existing = this.$container.children(".backstretch").first();
         this.$wrap = $existing.length ? $existing : $('<div class="backstretch"></div>').css(styles.wrap).appendTo(this.$container);
+
+        if (this.options.caption) {
+            // Add caption
+            var $caption = this.$container.children(".bs-caption").first();
+            this.$caption = $caption.lenght ? $caption : $('<figcaption class="bs-caption"></figcaption>');
+
+            this.$caption.appendTo(this.$container);
+        }
 
         if (this.options.nav) {
             // Add navigation
@@ -336,7 +347,15 @@
                 .appendTo(self.$wrap);
 
             // Hack for IE img onload event
-            self.$img.attr('src', self.images[newIndex]);
+            self.$img.attr('src', self.images[newIndex].src);
+            self.$img.attr('alt', self.images[newIndex].alt);
+            self.$img.attr('title', self.images[newIndex].title);
+
+            // New caption
+            if (this.options.caption) {
+                self.$caption.first().html(self.images[newIndex].caption)
+            }
+
             return self;
         },
 
