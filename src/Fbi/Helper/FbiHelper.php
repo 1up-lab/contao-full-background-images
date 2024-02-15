@@ -1,12 +1,15 @@
 <?php
 
-namespace Oneup\Contao\Fbi\Helper;
+namespace Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper;
+
+use Contao\PageModel;
+use Contao\StringUtil;
 
 class FbiHelper implements FbiHelperInterface
 {
-    public function findAll(\PageModel $pageModel)
+    public function findAll(PageModel $pageModel)
     {
-        $pageModel->fbiSRC = deserialize($pageModel->fbiSRC);
+        $pageModel->fbiSRC = StringUtil::deserialize($pageModel->fbiSRC);
 
         switch ($pageModel->fbi) {
             case 'disable':
@@ -18,13 +21,15 @@ class FbiHelper implements FbiHelperInterface
                 if (!$pageModel->pid) {
                     return null;
                 }
-                $pageModel = $this->findAll(\PageModel::findOneBy('id', $pageModel->pid));
+
+                $pageModel = $this->findAll(PageModel::findOneBy('id', $pageModel->pid));
                 break;
 
             case 'choose':
                 if (!is_array($pageModel->fbiSRC) || empty($pageModel->fbiSRC)) {
                     $pageModel = null;
                 }
+
                 break;
         }
 

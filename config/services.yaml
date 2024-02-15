@@ -1,0 +1,18 @@
+services:
+    oneup_contao.full_background_images.dca_helper:
+        class: Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper\Dca\DcaHelper
+        public: true
+
+    oneup_contao.full_background_images.fbi_helper:
+        class: Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper\FbiHelper
+        public: true
+
+    oneup_contao.full_background_images.runner:
+        class: Oneup\ContaoFullBackgroundImagesBundle\Fbi\Runner
+        public: true
+        arguments:
+            - '@request_stack'
+            - '@contao.routing.scope_matcher'
+            - '@oneup_contao.full_background_images.fbi_helper'
+        tags:
+            - { name: contao.hook, hook: generatePage }

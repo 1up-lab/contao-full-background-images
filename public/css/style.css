@@ -1,0 +1,65 @@
+.bs-caption {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin-left: 40px;
+    color: white;
+}
+ 
+.bs-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.bs-nav .item, .bs-nav .item-nav {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    margin: 0 4px;
+
+    text-indent: -999em;
+    *text-indent: 0;
+
+    border: 2px solid #fff;
+    border-radius: 6px;
+
+    cursor: pointer;
+    opacity: .4;
+
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+}
+
+.bs-nav .item.active {
+    background: #fff;
+    opacity: 1;
+}
+
+.bs-nav .item-nav {
+    border-radius: 0;
+    width: 0;
+    height: 0;
+    border-style: inset;
+    -webkit-transform:rotate(360deg);
+}
+
+.bs-nav .item-nav:hover {
+    opacity: 1;
+}
+
+.bs-nav .item-nav.next {
+    border-width: 7px 0 7px 14px;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.bs-nav .item-nav.prev {
+    border-width: 7px 14px 7px 0;
+    border-color: transparent #ffffff transparent transparent;
+}

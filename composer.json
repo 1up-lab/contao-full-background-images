@@ -1,50 +1,64 @@
 {
-    "name":"oneup/contao-full-background-images",
-    "description":"Use full background images in Contao Open Source CMS. This extension also provides a full background image slider/fader.",
-    "keywords":["contao", "full", "background", "slider", "images"],
-    "type":"contao-module",
-    "homepage":"http://1up.io",
-    "license":"MIT",
-    "authors":[
+    "name": "oneup/contao-full-background-images",
+    "type": "contao-bundle",
+    "description": "Use full background images in Contao Open Source CMS. This extension also provides a full background image slider/fader.",
+    "keywords": [
+        "contao",
+        "full",
+        "background",
+        "slider",
+        "images"
+    ],
+    "homepage": "https://1up.io",
+    "license": "MIT",
+    "authors": [
         {
-            "name":"David Greminger",
-            "email":"dg@1up.io",
-            "homepage":"http://1up.io",
-            "role":"Developer"
+            "name": "David Greminger",
+            "email": "dg@1up.io",
+            "homepage": "http://1up.io",
+            "role": "Developer"
         }
     ],
-    "support":{
-        "email":"hello@1up.io",
-        "issues":"https://github.com/1up-lab/contao-full-background-images/issues",
-        "irc":"irc://irc.freenode.org/contao.dev",
-        "source":"https://github.com/1up-lab/contao-full-background-images"
+    "require": {
+        "php": "^8.1",
+        "contao/core-bundle": "^4.13",
+        "contao/manager-plugin": "^2.3.1",
+        "symfony/config": "^5.4 || ^6.0",
+        "symfony/dependency-injection": "^5.4 || ^6.0",
+        "symfony/http-foundation": "^5.4 || ^6.0",
+        "symfony/http-kernel": "^5.4 || ^6.0",
+        "symfony/routing": "^5.4 || ^6.0"
     },
-    "require":{
-        "php":">=5.4",
-        "contao/core-bundle": "^3.2 || ^4.1",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4"
     },
-    "replace": {
-        "contao-legacy/full-background-images": "self.version"
-    },
-    "conflict": {
-        "contao/core": "3.4.0"
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false
+        },
+        "contao-manager-plugin": "Oneup\\ContaoFullBackgroundImagesBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Oneup\\Contao\\": "src"
+            "Oneup\\ContaoFullBackgroundImagesBundle\\": "src"
         }
     },
-    "extra": {
-        "contao": {
-            "sources": {
-                "contao": "system/modules/full-background-images"
-            }
+    "prefer-stable": true,
+    "support": {
+        "email": "hello@1up.io",
+        "issues": "https://github.com/1up-lab/contao-full-background-images/issues",
+        "source": "https://github.com/1up-lab/contao-full-background-images"
+    },
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true,
+            "contao-components/installer": true,
+            "php-http/discovery": true,
+            "contao/manager-plugin": true
         },
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "platform": {
+            "php": "8.1"
+        },
+        "sort-packages": true
+    }
 }
