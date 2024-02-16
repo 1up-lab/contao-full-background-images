@@ -139,7 +139,7 @@ class Runner
                         continue;
                     }
 
-                    $arrMeta = $this->getMetaData($subfiles->meta, $page->language);
+                    $arrMeta = Frontend::getMetaData($subfiles->meta, $page->language);
 
                     // Use the file name as title if none is given
                     if ($arrMeta['title'] === '') {
