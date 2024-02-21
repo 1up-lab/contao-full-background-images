@@ -1,124 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-  <file datatype="php" original="system/modules/full-background-images/languages/en/tl_page.php" source-language="en">
-    <body>
-      <trans-unit id="tl_page.fbiSRC.0">
-        <source>Source files</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiSRC.1">
-        <source>Please select one or more files or folders from the files directory. If you select a folder, its files will be included automatically.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbi_legend">
-        <source>Contao full background images mode</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiImgCaption.0">
-        <source>Image caption</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiImgCaption.1">
-        <source>If enabled, the background image caption will be shown.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiImgMode.0">
-        <source>Image mode</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiImgMode.1">
-        <source>Select the mode for the background images.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiLimit.0">
-        <source>Number of Image</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiLimit.1">
-        <source>"0" will show all the background images.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.single.0">
-        <source>Single image</source>
-      </trans-unit>
-      <trans-unit id="tl_page.single.1">
-        <source>Show only one image (the first from the selection).</source>
-      </trans-unit>
-      <trans-unit id="tl_page.random.0">
-        <source>Random single image</source>
-      </trans-unit>
-      <trans-unit id="tl_page.random.1">
-        <source>Show only one image (random from the selection).</source>
-      </trans-unit>
-      <trans-unit id="tl_page.multiple.0">
-        <source>Fade multiple images</source>
-      </trans-unit>
-      <trans-unit id="tl_page.multiple.1">
-        <source>Show all images from the selection with fading.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiSpeed.0">
-        <source>Animation speed</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiSpeed.1">
-        <source>Animation speed in ms (milliseconds).</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiTimeout.0">
-        <source>Timeout time</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiTimeout.1">
-        <source>Time between image changes in ms (milliseconds).</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbi.0">
-        <source>Operation Mode</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbi.1">
-        <source>Select a desired operation mode.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.inherit.0">
-        <source>Inherit from parent</source>
-      </trans-unit>
-      <trans-unit id="tl_page.inherit.1">
-        <source>Inherits settings from a parent page.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.choose.0">
-        <source>Individual selection</source>
-      </trans-unit>
-      <trans-unit id="tl_page.choose.1">
-        <source>Use the selected images for this page.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.disable.0">
-        <source>Disabled</source>
-      </trans-unit>
-      <trans-unit id="tl_page.disable.1">
-        <source>Don't add a background image.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiEnableNav.0">
-        <source>Enable navigation</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiEnableNav.1">
-        <source>Enables the navigation dots.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiNavClick.0">
-        <source>Enable navigation click</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiNavClick.1">
-        <source>Enables clickable navigation dots.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiNavPrevNext.0">
-        <source>Enable prev/next navigation</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiNavPrevNext.1">
-        <source>Enables previous/next navigation.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiCenterX.0">
-        <source>Center image horizontally</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiCenterX.1">
-        <source>This parameter controls whether or not we center the image on the X axis.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiCenterY.0">
-        <source>Center image vertically</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiCenterY.1">
-        <source>This parameter controls whether or not we center the image on the Y axis.</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiTemplate.0">
-        <source>Custom element template</source>
-      </trans-unit>
-      <trans-unit id="tl_page.fbiTemplate.1">
-        <source>Here you can overwrite the default element template.</source>
-      </trans-unit>
-    </body>
-  </file>
+    <file datatype="php" original="system/modules/full-background-images/languages/en/tl_page.php" source-language="en">
+        <body>
+            <trans-unit id="tl_page.fbiSRC.0">
+                <source>Source files</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiSRC.1">
+                <source>Please select one or more files or folders from the files directory. If you select a folder, its
+                    files will be included automatically.
+                </source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbi_legend">
+                <source>Contao full background images mode</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiImgCaption.0">
+                <source>Image caption</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiImgCaption.1">
+                <source>If enabled, the background image caption will be shown.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiImgMode.0">
+                <source>Image mode</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiImgMode.1">
+                <source>Select the mode for the background images.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiLimit.0">
+                <source>Number of Image</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiLimit.1">
+                <source>"0" will show all the background images.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.single.0">
+                <source>Single image</source>
+            </trans-unit>
+            <trans-unit id="tl_page.single.1">
+                <source>Show only one image (the first from the selection).</source>
+            </trans-unit>
+            <trans-unit id="tl_page.random.0">
+                <source>Random single image</source>
+            </trans-unit>
+            <trans-unit id="tl_page.random.1">
+                <source>Show only one image (random from the selection).</source>
+            </trans-unit>
+            <trans-unit id="tl_page.multiple.0">
+                <source>Fade multiple images</source>
+            </trans-unit>
+            <trans-unit id="tl_page.multiple.1">
+                <source>Show all images from the selection with fading.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiSpeed.0">
+                <source>Animation speed</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiSpeed.1">
+                <source>Animation speed in ms (milliseconds).</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiTimeout.0">
+                <source>Timeout time</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiTimeout.1">
+                <source>Time between image changes in ms (milliseconds).</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbi.0">
+                <source>Operation Mode</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbi.1">
+                <source>Select a desired operation mode.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.inherit.0">
+                <source>Inherit from parent</source>
+            </trans-unit>
+            <trans-unit id="tl_page.inherit.1">
+                <source>Inherits settings from a parent page.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.choose.0">
+                <source>Individual selection</source>
+            </trans-unit>
+            <trans-unit id="tl_page.choose.1">
+                <source>Use the selected images for this page.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.disable.0">
+                <source>Disabled</source>
+            </trans-unit>
+            <trans-unit id="tl_page.disable.1">
+                <source>Don't add a background image.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiEnableNav.0">
+                <source>Enable navigation</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiEnableNav.1">
+                <source>Enables the navigation dots.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiNavClick.0">
+                <source>Enable navigation click</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiNavClick.1">
+                <source>Enables clickable navigation dots.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiNavPrevNext.0">
+                <source>Enable prev/next navigation</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiNavPrevNext.1">
+                <source>Enables previous/next navigation.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiCenterX.0">
+                <source>Center image horizontally</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiCenterX.1">
+                <source>This parameter controls whether or not we center the image on the X axis.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiCenterY.0">
+                <source>Center image vertically</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiCenterY.1">
+                <source>This parameter controls whether or not we center the image on the Y axis.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiTemplate.0">
+                <source>Custom element template</source>
+            </trans-unit>
+            <trans-unit id="tl_page.fbiTemplate.1">
+                <source>Here you can overwrite the default element template.</source>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>
