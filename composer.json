@@ -15,7 +15,13 @@
         {
             "name": "David Greminger",
             "email": "dg@1up.io",
-            "homepage": "http://1up.io",
+            "homepage": "https://1up.io",
+            "role": "Developer"
+        },
+        {
+            "name": "Oliver Schmidt",
+            "email": "oliver.schmidt@1up.io",
+            "homepage": "https://1up.io",
             "role": "Developer"
         }
     ],
