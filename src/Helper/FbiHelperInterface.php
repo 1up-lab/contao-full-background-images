@@ -1,6 +1,6 @@
 <?php
 
-namespace Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper;
+namespace Oneup\ContaoFullBackgroundImagesBundle\Helper;
 
 use Contao\PageModel;
 

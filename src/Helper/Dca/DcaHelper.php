@@ -1,6 +1,6 @@
 <?php
 
-namespace Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper\Dca;
+namespace Oneup\ContaoFullBackgroundImagesBundle\Helper\Dca;
 
 use Contao\Backend;
 

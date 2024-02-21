@@ -1,14 +1,14 @@
 services:
     oneup_contao.full_background_images.dca_helper:
-        class: Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper\Dca\DcaHelper
+        class: Oneup\ContaoFullBackgroundImagesBundle\Helper\Dca\DcaHelper
         public: true
 
     oneup_contao.full_background_images.fbi_helper:
-        class: Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper\FbiHelper
+        class: Oneup\ContaoFullBackgroundImagesBundle\Helper\FbiHelper
         public: true
 
     oneup_contao.full_background_images.runner:
-        class: Oneup\ContaoFullBackgroundImagesBundle\Fbi\Runner
+        class: Oneup\ContaoFullBackgroundImagesBundle\Runner
         public: true
         arguments:
             - '@request_stack'

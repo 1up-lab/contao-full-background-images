@@ -1,6 +1,6 @@
 <?php
 
-namespace Oneup\ContaoFullBackgroundImagesBundle\Fbi;
+namespace Oneup\ContaoFullBackgroundImagesBundle;
 
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\File;
@@ -12,7 +12,7 @@ use Contao\PageModel;
 use Contao\PageRegular;
 use Contao\StringUtil;
 use Model\Collection;
-use Oneup\ContaoFullBackgroundImagesBundle\Fbi\Helper\FbiHelper;
+use Oneup\ContaoFullBackgroundImagesBundle\Helper\FbiHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
