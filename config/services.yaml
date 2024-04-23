@@ -14,5 +14,6 @@ services:
             - '@request_stack'
             - '@contao.routing.scope_matcher'
             - '@oneup_contao.full_background_images.fbi_helper'
+            - '%kernel.project_dir%'
         tags:
             - { name: contao.hook, hook: generatePage }

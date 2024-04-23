@@ -8,10 +8,10 @@ use Contao\FilesModel;
 use Contao\Frontend;
 use Contao\FrontendTemplate;
 use Contao\LayoutModel;
+use Contao\Model\Collection;
 use Contao\PageModel;
 use Contao\PageRegular;
 use Contao\StringUtil;
-use Model\Collection;
 use Oneup\ContaoFullBackgroundImagesBundle\Helper\FbiHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -27,6 +27,7 @@ class Runner
         private readonly RequestStack $requestStack,
         private readonly ScopeMatcher $scopeMatcher,
         private readonly FbiHelper    $backgroundHelper,
+        private readonly string       $projectDir,
     ) {
     }
 
@@ -78,7 +79,7 @@ class Runner
 
         while ($backgrounds->next()) {
             // Continue if the files has been processed or does not exist
-            if (isset($images[$backgrounds->path]) || !file_exists(TL_ROOT . '/' . $backgrounds->path)) {
+            if (isset($images[$backgrounds->path]) || !file_exists($this->projectDir . '/' . $backgrounds->path)) {
                 continue;
             }
 
