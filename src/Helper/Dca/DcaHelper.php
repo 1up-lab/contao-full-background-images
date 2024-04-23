@@ -4,16 +4,9 @@ namespace Oneup\ContaoFullBackgroundImagesBundle\Helper\Dca;
 
 use Contao\Backend;
 
-class DcaHelper extends Backend
+class DcaHelper
 {
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->import('BackendUser', 'User');
-    }
-
-    public function getElementTemplates()
+    public function getElementTemplates(): array
     {
         return Backend::getTemplateGroup('fbi_');
     }
