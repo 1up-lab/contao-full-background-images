@@ -57,9 +57,9 @@ Contao extension repository
 License
 -------
 
-This extension is licensed under the MIT license. See the complete license in the following directory:
+This extension is licensed under the MIT license. See the complete license in the following file:
 
-    resources/meta/LICENSE
+    LICENSE
 
 Reporting an issue or a feature request
 ---------------------------------------
