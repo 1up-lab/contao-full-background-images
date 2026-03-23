@@ -104,7 +104,7 @@ class Runner
                 }
 
                 // Use the file name as title if none is given
-                if ($arrMeta['title'] === '') {
+                if (($arrMeta['title'] ?? '') === '') {
                     $arrMeta['title'] = StringUtil::specialchars(str_replace('_', ' ', $file->filename));
                 }
 
@@ -114,10 +114,10 @@ class Runner
                     'uuid' => $backgrounds->uuid,
                     'name' => $file->basename,
                     'singleSRC' => $file->path,
-                    'alt' => ($arrMeta['caption'] ?: $arrMeta['title']),
-                    'title' => $arrMeta['title'],
-                    'imageUrl' => $arrMeta['link'],
-                    'caption' => $arrMeta['caption'],
+                    'alt' => ($arrMeta['caption'] ?? $arrMeta['title'] ?? ''),
+                    'title' => $arrMeta['title'] ?? '',
+                    'imageUrl' => $arrMeta['link'] ?? '',
+                    'caption' => $arrMeta['caption'] ?? '',
                 ];
 
                 $auxDate[] = $file->mtime;
@@ -143,7 +143,7 @@ class Runner
                     $arrMeta = Frontend::getMetaData($subfiles->meta, $page->language);
 
                     // Use the file name as title if none is given
-                    if ($arrMeta['title'] === '') {
+                    if (($arrMeta['title'] ?? '') === '') {
                         $arrMeta['title'] = StringUtil::specialchars(str_replace('_', ' ', $file->filename));
                     }
 
@@ -153,10 +153,10 @@ class Runner
                         'uuid' => $subfiles->uuid,
                         'name' => $file->basename,
                         'singleSRC' => $file->path,
-                        'alt' => ($arrMeta['caption'] ?: $arrMeta['title']),
-                        'title' => $arrMeta['title'],
-                        'imageUrl' => $arrMeta['link'],
-                        'caption' => $arrMeta['caption'],
+                        'alt' => ($arrMeta['caption'] ?? $arrMeta['title'] ?? ''),
+                        'title' => $arrMeta['title'] ?? '',
+                        'imageUrl' => $arrMeta['link'] ?? '',
+                        'caption' => $arrMeta['caption'] ?? '',
                     ];
 
                     $auxDate[] = $file->mtime;
